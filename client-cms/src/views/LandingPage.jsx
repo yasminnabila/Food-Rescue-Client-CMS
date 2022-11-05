@@ -1,11 +1,12 @@
 import HeaderImage from "../components/Carousel";
-import NavBar from "../components/NavBar";
 
 export default function LandingPage() {
   return (
     <>
-      <NavBar />
       <HeaderImage />
+      <h1>Space untuk card benefit costumer</h1>
+       <h1>Space untuk card benefit partner</h1>
+       <h1>Footer</h1>
     </>
   );
 }
