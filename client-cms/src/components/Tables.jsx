@@ -3,23 +3,12 @@ import { DataGrid } from "@mui/x-data-grid";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "firstName", headerName: "First name", width: 130 },
-  { field: "lastName", headerName: "Last name", width: 130 },
-  {
-    field: "age",
-    headerName: "Age",
-    type: "number",
-    width: 90,
-  },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
+  { field: "photo", headerName: "Product Photo", width: 200 },
+  { field: "name", headerName: "Product Name", width: 170 },
+  { field: "price", headerName: "Price", width: 120 },
+  { field: "stock", headerName: "Stock", width: 120 },
+  { field: "isActive", headerName: "Active", width: 110 },
+  { field: "edit", headerName: "Action", width: 100 },
 ];
 
 const rows = [
@@ -36,7 +25,7 @@ const rows = [
 
 export default function DataTable() {
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 370, width: "95%", backgroundColor: "white" }}>
       <DataGrid
         rows={rows}
         columns={columns}

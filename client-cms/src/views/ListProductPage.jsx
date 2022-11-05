@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import DashboardCards from "../components/DashboardCards";
 import Tables from "../components/Tables";
 
@@ -12,7 +12,18 @@ function ListProductPage() {
           backgroundColor: "#77AA9C",
         }}
       >
-        <Tables />
+        <Row className="mt-5">
+          <h1 className="d-flex justify-content-start">List Product</h1>
+        </Row>
+        <Row className="mb-3">
+          <Col className="col-9"></Col>
+          <Col className="col-3">
+            <Button className="btn-light btn"> + Add Product</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Tables />
+        </Row>
       </Container>
     </>
   );
