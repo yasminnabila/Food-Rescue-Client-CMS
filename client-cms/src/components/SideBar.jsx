@@ -20,15 +20,15 @@ function SideBar() {
         <ul className="nav flex-column ">
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
-              onClick={() => navigate(`/`)}
+              onClick={() => navigate(`/admin`)}
               className="nav-link text-black small"
             >
-              Home
+              Dashboard
             </Nav.Link>
           </li>
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
-              onClick={() => navigate(`/genre`)}
+              onClick={() => navigate(`/admin/list-product`)}
               className="nav-link text-black small"
             >
               Product

@@ -1,4 +1,4 @@
-import { Container, Row, Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import DashboardCards from "../components/DashboardCards";
 
 function Dashboard() {
@@ -16,7 +16,20 @@ function Dashboard() {
           <h5 className="d-flex justify-content-start">
             Activities you need to monitor to maintain customer’s satisfaction
           </h5>
-          <DashboardCards />
+        </Row>
+        <Row className="mt-3">
+          <Col className="p-4 col-3">
+            <DashboardCards />
+          </Col>
+          <Col className="p-4 col-3">
+            <DashboardCards />
+          </Col>
+          <Col className="p-4 col-3">
+            <DashboardCards />
+          </Col>
+          <Col className="p-4 col-3">
+            <DashboardCards />
+          </Col>
         </Row>
       </Container>
     </>
