@@ -7,7 +7,6 @@ function LoginPage() {
       fluid
       className="d-flex justify-content-center"
       style={{ minHeight: "100vh", backgroundColor: "#77AA9C" }}
-      id="login-section"
     >
       <Container
         className="container h-50 w-50 justify-content-center align-items-center mt-5"

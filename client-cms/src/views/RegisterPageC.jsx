@@ -66,6 +66,7 @@ function RegisterPageC() {
                 Back
               </Button>
               <Button
+                onClick={() => navigate(`/admin`)}
                 variant="primary"
                 type="submit"
                 className="mt-3 border-0"
