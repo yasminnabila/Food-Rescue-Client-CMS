@@ -1,4 +1,4 @@
-import HeaderImage from "../components/Carousel";
+import HeaderImage from "../components/HeaderImage";
 
 export default function LandingPage() {
   return (

@@ -1,8 +1,9 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import DashboardCards from "../components/DashboardCards";
 import Tables from "../components/Tables";
+import { useNavigate } from "react-router-dom";
 
 function ListProductPage() {
+   const navigate = useNavigate();
   return (
     <>
       <Container
@@ -18,7 +19,13 @@ function ListProductPage() {
         <Row className="mb-3">
           <Col className="col-9"></Col>
           <Col className="col-3">
-            <Button className="btn-light btn"> + Add Product</Button>
+            <Button
+              onClick={() => navigate(`/admin/add-product`)}
+              className="btn-light btn"
+            >
+              {" "}
+              + Add Product
+            </Button>
           </Col>
         </Row>
         <Row>

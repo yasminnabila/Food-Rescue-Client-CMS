@@ -8,6 +8,7 @@ import RegisterPageB from "../views/RegisterPageB";
 import RegisterPageC from "../views/RegisterPageC";
 import Dashboard from "../views/Dashboard";
 import ListProductPage from "../views/ListProductPage";
+import AddProduct from "../views/AddProductPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/list-product",
         element: <ListProductPage />,
+      },
+      {
+        path: "/admin/add-product",
+        element: <AddProduct />,
       },
     ],
   },
