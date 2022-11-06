@@ -1,7 +1,14 @@
 import { Button, Form, Row, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../store/actionTypes/actionTypes";
 
 function LoginPage() {
+  const [input, setInputLogin] = useState({
+    email: "",
+    password: "",
+  });
   return (
     <Container
       fluid
