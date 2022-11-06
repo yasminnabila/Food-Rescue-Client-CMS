@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout";
 import LayoutCMS from "../layouts/LayoutCMS";
 import LandingPage from "../views/LandingPage";
 import LoginPage from "../views/LoginPage";
-import RegisterPageA from "../views/RegisterPageA";
-import RegisterPageB from "../views/RegisterPageB";
-import RegisterPageC from "../views/RegisterPageC";
+import RegisterUser from "../views/RegisterUser";
+import RegisterResto1 from "../views/RegisterResto1";
+import RegisterResto2 from "../views/RegisterResto2";
 import Dashboard from "../views/Dashboard";
 import ListProductPage from "../views/ListProductPage";
 import AddProduct from "../views/AddProductPage";
@@ -17,30 +17,27 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />,
-        // loader: () => {
-        //   if (!localStorage.getItem("access_token")) throw redirect("/login");
-        // },
       },
       {
         path: "/login",
         element: <LoginPage />,
         loader: () => {
-          if (localStorage.getItem("access_token")) throw redirect("/");
+          if (localStorage.getItem("access_token")) throw redirect("/admin");
         },
       },
     ],
   },
   {
-    path: "/registerA",
-    element: <RegisterPageA />,
+    path: "/register-user",
+    element: <RegisterUser />,
   },
   {
-    path: "/registerB",
-    element: <RegisterPageB />,
+    path: "/register-resto-1",
+    element: <RegisterResto1 />,
   },
   {
-    path: "/registerC",
-    element: <RegisterPageC />,
+    path: "/register-resto-2",
+    element: <RegisterResto2 />,
   },
   {
     element: <LayoutCMS />,
@@ -58,6 +55,17 @@ const router = createBrowserRouter([
         element: <AddProduct />,
       },
     ],
+    loader: () => {
+      if (!localStorage.getItem("access_token")) {
+        throw redirect("/login");
+      }
+      else if (
+        localStorage.getItem("access_token") &&
+        !localStorage.getItem("restoId")
+      ) {
+        throw redirect("/register-resto-1");
+      }
+    },
   },
 ]);
 

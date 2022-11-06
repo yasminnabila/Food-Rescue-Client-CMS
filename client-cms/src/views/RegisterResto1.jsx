@@ -85,7 +85,7 @@ function RegisterPageB() {
             </Row>
             <Col>
               <Button
-                onClick={() => navigate(`/registerA`)}
+                onClick={() => navigate(`/`)}
                 variant="light"
                 type="button"
                 className="mt-3 margin-5 btn btn-light"
@@ -93,7 +93,7 @@ function RegisterPageB() {
                 Back
               </Button>
               <Button
-                onClick={() => navigate(`/registerC`)}
+                onClick={() => navigate(`/register-resto-2`)}
                 variant="primary"
                 type="submit"
                 className="mt-3 border-0"
