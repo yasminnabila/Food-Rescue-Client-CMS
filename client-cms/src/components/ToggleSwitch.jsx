@@ -46,9 +46,9 @@ export default function ToggleSwitch({ status, props }) {
     setChecked(nextChecked);
   };
 
-  const handleUpdate = () => {
-    dispatch(updateActiveFood(id));
-  };
+  // const handleUpdate = () => {
+  //   dispatch(updateActiveFood(id));
+  // };
 
   return (
     <div className="example">
