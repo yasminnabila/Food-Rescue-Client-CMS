@@ -100,7 +100,7 @@ export function createFood(food) {
 export function updateFood(food, id) {
   return async (dispatch) => {
     try {
-      let response = await fetch(BASE_URL + `resto/food/${id}`, {
+      let response = await fetch(BASE_URL + `/resto/food/${id}`, {
         method: "PUT",
         headers: {
           access_token: localStorage.getItem("access_token"),

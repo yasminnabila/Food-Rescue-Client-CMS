@@ -1,8 +1,14 @@
 import React from "react";
 import "./ToggleSwitch.css";
+import { useState } from "react";
 
 const ToggleSwitch = ({ label, status }) => {
-  //  const { food } = props;
+  const [state, setState] = useState({ status });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
   return (
     <div className="container">
       {label}{" "}
@@ -13,7 +19,8 @@ const ToggleSwitch = ({ label, status }) => {
           name={label}
           id={label}
           value={status}
-          checked={status}
+          checked={state.status}
+          onChange={handleChange}
         />
         <label className="label" htmlFor={label}>
           <span className="inner" />

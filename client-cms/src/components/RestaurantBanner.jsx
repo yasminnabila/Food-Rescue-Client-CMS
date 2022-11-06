@@ -6,7 +6,7 @@ import { fetchRestaurant } from "../store/action/restaurants";
 function RestaurantBanner() {
   const dispatch = useDispatch();
   const { restaurant } = useSelector((state) => {
-    console.log(state);
+    // console.log(state);
     return state.restaurantReducer;
   });
 
