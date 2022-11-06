@@ -31,7 +31,7 @@ export default function RowsProduct(props) {
       <td className="align-middle">{price}</td>
       <td className="align-middle">{quantity}</td>
       <td className="align-middle">
-        <ToggleSwitch label="Active" status={is_active} />
+        <ToggleSwitch label="Active" status={is_active}  />
       </td>
       <td className="align-middle">
         <button
