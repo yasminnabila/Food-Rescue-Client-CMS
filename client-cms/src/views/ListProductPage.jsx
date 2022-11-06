@@ -3,17 +3,16 @@ import Tables from "../components/Tables";
 import { useNavigate } from "react-router-dom";
 
 function ListProductPage() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
-      <Container
-      >
+      <Container>
         <Row className="mt-5">
           <h1 className="d-flex justify-content-start">List Product</h1>
         </Row>
         <Row className="mb-3">
           <Col className="col-9"></Col>
-          <Col className="col-3">
+          <Col className="col-3 d-flex justify-content-end">
             <Button
               onClick={() => navigate(`/admin/add-product`)}
               className="btn-light btn"
@@ -24,7 +23,18 @@ function ListProductPage() {
           </Col>
         </Row>
         <Row>
-          <Tables />
+          <Tables
+            status={"product"}
+            head={[
+              "No",
+              "Product Name",
+              "Photo",
+              "Price",
+              "Stock",
+              "Status",
+              "Action",
+            ]}
+          />
         </Row>
       </Container>
     </>

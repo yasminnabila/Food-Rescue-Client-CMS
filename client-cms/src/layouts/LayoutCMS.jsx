@@ -14,7 +14,7 @@ export default function Layout() {
             style={{
               minHeight: "100vh",
               backgroundColor: "#77AA9C",
-              paddingTop: "50px",
+              paddingTop: "70px",
             }}
           >
             <Outlet />

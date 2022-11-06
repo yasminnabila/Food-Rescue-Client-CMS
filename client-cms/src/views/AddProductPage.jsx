@@ -5,7 +5,7 @@ function AddProduct() {
   const navigate = useNavigate();
   return (
     <Container>
-      <h1 className="mb-3 mt-5">Add Product</h1>
+      <h1 className="mb-3 mt-5 text-center">Add Product</h1>
 
       <Container
         className="container h-50 w-70"
