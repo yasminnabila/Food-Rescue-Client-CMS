@@ -76,27 +76,27 @@ export function createFood(food) {
     }
   };
 }
-export function deleteFood(id) {
-  return (dispatch) => {
-    try {
-      confirmSwal().then(async (result) => {
-        if (result.isConfirmed) {
-          let response = await fetch(BASE_URL + `resto/food/${id}`, {
-            method: "DELETE",
-            headers: { access_token: localStorage.getItem("access_token") },
-          });
-          if (!response.ok) {
-            throw response.message;
-          }
-          // Swal.fire("Deleted!", "Food is deleted successfully", "success");
-          dispatch(fetchFood());
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
+// export function deleteFood(id) {
+//   return (dispatch) => {
+//     try {
+//       confirmSwal().then(async (result) => {
+//         if (result.isConfirmed) {
+//           let response = await fetch(BASE_URL + `resto/food/${id}`, {
+//             method: "DELETE",
+//             headers: { access_token: localStorage.getItem("access_token") },
+//           });
+//           if (!response.ok) {
+//             throw response.message;
+//           }
+//           // Swal.fire("Deleted!", "Food is deleted successfully", "success");
+//           dispatch(fetchFood());
+//         }
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// }
 export function updateFood(food, id) {
   return async (dispatch) => {
     try {

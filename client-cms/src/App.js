@@ -2,12 +2,14 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import router from "./router"
 import { RouterProvider } from "react-router-dom";
+import store from './store';
+import { Provider as ReduxProvider } from 'react-redux';
 
 function App() {
   return (
-    <div className="App">
+    <ReduxProvider store={store}>
       <RouterProvider router={router} />
-    </div>
+    </ReduxProvider>
   );
 }
 
