@@ -22,8 +22,14 @@ const router = createBrowserRouter([
         path: "/login",
         element: <LoginPage />,
         loader: () => {
-          if (localStorage.getItem("access_token")) throw redirect("/admin");
-          else throw redirect("/login");
+          if (
+            localStorage.getItem("access_token") &&
+            localStorage.getItem("restoId")
+          )
+            throw redirect("/admin");
+          else if (localStorage.getItem("access_token"))
+            throw redirect("/register-resto");
+          // else throw redirect("/login");
         },
       },
     ],
@@ -38,6 +44,16 @@ const router = createBrowserRouter([
   },
   {
     element: <LayoutCMS />,
+    loader: () => {
+      if (!localStorage.getItem("access_token")) {
+        throw redirect("/login");
+      } else if (
+        localStorage.getItem("access_token") &&
+        !localStorage.getItem("restoId")
+      ) {
+        throw redirect("/register-resto");
+      }
+    },
     children: [
       {
         path: "/admin",
@@ -53,19 +69,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/chart",
-        element: <ChartPage/>
-      }
+        element: <ChartPage />,
+      },
     ],
-    loader: () => {
-      if (!localStorage.getItem("access_token")) {
-        throw redirect("/login");
-      } else if (
-        localStorage.getItem("access_token") &&
-        !localStorage.getItem("restoId")
-      ) {
-        throw redirect("/register-resto");
-      }
-    },
   },
 ]);
 
