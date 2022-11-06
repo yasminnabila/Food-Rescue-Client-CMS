@@ -1,4 +1,5 @@
 import * as React from "react";
+import ToggleSwitch from "./ToggleSwitch";
 
 export default function RowsProduct(props) {
   const { no, food } = props;
@@ -16,7 +17,9 @@ export default function RowsProduct(props) {
       </td>
       <td className="align-middle">{price}</td>
       <td className="align-middle">{quantity}</td>
-      <td className="align-middle">{is_active}</td>
+      <td className="align-middle">
+        <ToggleSwitch label="Active" status={is_active}/>
+      </td>
       <td className="align-middle">
         <button
           //   onClick={(event) => handleClickEdit(event, id)}
