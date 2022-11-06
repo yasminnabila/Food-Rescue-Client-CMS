@@ -10,6 +10,7 @@ import ListProductPage from "../views/ListProductPage";
 import AddProductPage from "../views/AddProductPage";
 import { ChartPage } from "../views/ChartPage";
 import EditProductPage from "../views/EditProductPage";
+import ListOrderPage from "../views/ListOrderPage";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/list-product",
         element: <ListProductPage />,
+      },
+      {
+        path: "/admin/list-order",
+        element: <ListOrderPage />,
       },
       {
         path: "/admin/add-product",
