@@ -1,5 +1,5 @@
 import * as React from "react";
-import { foodDetailById } from "../store/action/food";
+import { deleteFood, foodDetailById } from "../store/action/food";
 import ToggleSwitch from "./ToggleSwitch";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,9 @@ export default function RowsProduct(props) {
     event.preventDefault();
     dispatch(foodDetailById(id));
     navigate(`/admin/edit-product/${id}`);
+  };
+  const handleDelete = () => {
+    dispatch(deleteFood(id));
   };
   return (
     <tr className="align-items-center">
@@ -36,6 +39,9 @@ export default function RowsProduct(props) {
           className="btn btn-dark"
         >
           Edit
+        </button>
+        <button onClick={handleDelete} className="btn btn-dark">
+          Delete
         </button>
       </td>
     </tr>

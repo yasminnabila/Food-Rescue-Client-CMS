@@ -1,6 +1,7 @@
 import {
-  BASE_URL, SET_FOOD,
-  SET_FOOD_DETAIL
+  BASE_URL,
+  SET_FOOD,
+  SET_FOOD_DETAIL,
 } from "../actionTypes/actionTypes";
 
 export function setFood(data) {
@@ -50,8 +51,8 @@ export function foodDetailById(id) {
       const data = await response.json();
       dispatch(setFoodDetail(data));
     } catch (error) {
-      console.log(error)
-    } 
+      console.log(error);
+    }
   };
 }
 export function createFood(food) {
@@ -76,27 +77,30 @@ export function createFood(food) {
     }
   };
 }
-// export function deleteFood(id) {
-//   return (dispatch) => {
-//     try {
-//       confirmSwal().then(async (result) => {
-//         if (result.isConfirmed) {
-//           let response = await fetch(BASE_URL + `resto/food/${id}`, {
-//             method: "DELETE",
-//             headers: { access_token: localStorage.getItem("access_token") },
-//           });
-//           if (!response.ok) {
-//             throw response.message;
-//           }
-//           // Swal.fire("Deleted!", "Food is deleted successfully", "success");
-//           dispatch(fetchFood());
-//         }
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// }
+export function deleteFood(id) {
+  return async (dispatch) => {
+    try {
+      // confirmSwal().then(async (result) => {
+      //   if (result.isConfirmed) {
+      let response = await fetch(BASE_URL + `/resto/food/${id}`, {
+        method: "DELETE",
+        headers: {
+          access_token: localStorage.getItem("access_token"),
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw response.message;
+      }
+      // Swal.fire("Deleted!", "Food is deleted successfully", "success");
+      dispatch(fetchFood());
+      //   }
+      // });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 export function updateFood(food, id) {
   return async (dispatch) => {
     try {
