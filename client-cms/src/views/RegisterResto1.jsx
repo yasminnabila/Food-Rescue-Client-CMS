@@ -57,7 +57,7 @@ function RegisterPageB() {
                   <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="Restaurant"
-                    name="radio-buttons-group"
+                    name="type"
                   >
                     <FormControlLabel
                       value="restaurant"
@@ -90,7 +90,7 @@ function RegisterPageB() {
                 type="button"
                 className="mt-3 margin-5 btn btn-light"
               >
-                Back
+                Cancel
               </Button>
               <Button
                 onClick={() => navigate(`/register-resto-2`)}

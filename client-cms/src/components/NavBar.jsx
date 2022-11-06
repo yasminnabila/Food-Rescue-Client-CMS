@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const navigate = useNavigate();
   return (
-    <Navbar bg="white" expand="lg">
+    <Navbar bg="white" expand="lg" className="fixed-top">
       <Container>
         <Navbar.Brand>
           <img

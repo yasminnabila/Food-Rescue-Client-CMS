@@ -23,6 +23,7 @@ const router = createBrowserRouter([
         element: <LoginPage />,
         loader: () => {
           if (localStorage.getItem("access_token")) throw redirect("/admin");
+          else throw redirect("/login");
         },
       },
     ],
@@ -58,8 +59,7 @@ const router = createBrowserRouter([
     loader: () => {
       if (!localStorage.getItem("access_token")) {
         throw redirect("/login");
-      }
-      else if (
+      } else if (
         localStorage.getItem("access_token") &&
         !localStorage.getItem("restoId")
       ) {

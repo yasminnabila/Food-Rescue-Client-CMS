@@ -38,20 +38,116 @@ function RegisterPageC() {
             </Row>
             <h3 className="mt-5 mb-5">Welcome, [Restaurant Name]!</h3>
             <Row className="mb-3">
+              <h5 className="mb-5">
+                {" "}
+                Set up your profile to continue. The information will be
+                displayed in the Savvie app.
+              </h5>
+              {/* Business Description */}
               <Form.Group ontrolId="formGridUsername">
                 <Form.Label className="text-black text-start d-flex justify-content-start">
-                  Set up your profile to continue. The information will be
-                  displayed in the Savvie app.
+                  Business Description
                 </Form.Label>
                 <FloatingLabel
+                  name="description"
                   controlId="floatingTextarea"
                   label="Input your food business description here"
                   className="mb-3"
                 >
                   <Form.Control
-                    as="textarea"
-                    // placeholder="Input your food business description here"
-                    style={{ height: "150px" }}
+                    // value={input.description}
+                    // onChange={handleOnChange}
+                    name="description"
+                    type="textarea"
+                    style={{ height: "75px" }}
+                  />
+                </FloatingLabel>
+              </Form.Group>
+
+              {/* Business Logo */}
+              <Form.Group ontrolId="formGridUsername">
+                <Form.Label className="text-black text-start d-flex justify-content-start">
+                  Company logo (.jpg, .jpeg, or .png format)
+                </Form.Label>
+                <FloatingLabel
+                  name="logoUrl"
+                  controlId="floatingTextarea"
+                  label="Input your food business logo here"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    // value={input.description}
+                    // onChange={handleOnChange}
+                    name="description"
+                    type="textarea"
+                    // placeholder="description"
+                    style={{ height: "50px" }}
+                  />
+                </FloatingLabel>
+              </Form.Group>
+
+              {/* Business Address */}
+              <Form.Group ontrolId="formGridUsername">
+                <Form.Label className="text-black text-start d-flex justify-content-start">
+                  Company Address
+                </Form.Label>
+                <FloatingLabel
+                  name="address"
+                  controlId="floatingTextarea"
+                  label="Input your food business address here"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    // value={input.address}
+                    // onChange={handleOnChange}
+                    name="address"
+                    type="textarea"
+                    // placeholder="address"
+                    style={{ height: "50px" }}
+                  />
+                </FloatingLabel>
+              </Form.Group>
+
+              {/* Business Opening Hour */}
+              <Form.Group ontrolId="formGridUsername">
+                <Form.Label className="text-black text-start d-flex justify-content-start">
+                  Opening Hour
+                </Form.Label>
+                <FloatingLabel
+                  controlId="floatingTextarea"
+                  // label="Input your food business opening hour"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    style={{ width: "10rem", height: "2rem" }}
+                    className="d-flex align-items-center"
+                    // value={input.open_time}
+                    // onChange={handleOnChange}
+                    name="open_time"
+                    type="time"
+                    // placeholder="open_time"
+                  />
+                </FloatingLabel>
+              </Form.Group>
+
+              {/* Business Closing Hour */}
+              <Form.Group ontrolId="formGridUsername">
+                <Form.Label className="text-black text-start d-flex justify-content-start">
+                  Closing Hour
+                </Form.Label>
+                <FloatingLabel
+                  controlId="floatingTextarea"
+                  // label="Input your food business opening hour"
+                  className="mb-3"
+                >
+                  <Form.Control
+                    style={{ width: "10rem", height: "2rem" }}
+                    className="d-flex align-items-center"
+                    // value={input.close_time}
+                    // onChange={handleOnChange}
+                    name="close_time"
+                    type="time"
+                    // placeholder="close_time"
                   />
                 </FloatingLabel>
               </Form.Group>
