@@ -37,7 +37,7 @@ function SideBar() {
           </li>
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
-              onClick={() => navigate(`/`)}
+              onClick={() => navigate(`/admin/list-order`)}
               className="nav-link text-black small"
             >
               Order
@@ -45,7 +45,7 @@ function SideBar() {
           </li>
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
-              onClick={() => navigate(`/`)}
+              onClick={() => navigate(`/admin/chart`)}
               className="nav-link text-black small"
             >
               Statistics
