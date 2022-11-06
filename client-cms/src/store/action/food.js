@@ -125,7 +125,7 @@ export function updateFood(food, id) {
 export function updateStatusFood(food, id) {
   return async (dispatch) => {
     try {
-      let response = await fetch(BASE_URL + `resto/food-status/${id}`, {
+      let response = await fetch(BASE_URL + `/resto/food-status/${id}`, {
         method: "PATCH",
         headers: {
           access_token: localStorage.getItem("access_token"),
@@ -146,7 +146,7 @@ export function updateStatusFood(food, id) {
 export function updateActiveFood(food, id) {
   return async (dispatch) => {
     try {
-      let response = await fetch(BASE_URL + `resto/food-active/${id}`, {
+      let response = await fetch(BASE_URL + `/resto/food-active/${id}`, {
         method: "PATCH",
         headers: {
           access_token: localStorage.getItem("access_token"),
