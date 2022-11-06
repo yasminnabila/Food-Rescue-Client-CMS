@@ -2,53 +2,66 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createFood } from "../store/action/food";
+import { updateFood } from "../store/action/food";
 import { fetchCategory } from "../store/action/category";
 
-function AddProduct() {
+function EditProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => {
-    // console.log(state, "<<ini dari tables");
     return state.categoryReducer;
   });
 
+  const { foodDetail } = useSelector((state) => {
+    // console.log(state, "INI DETAIL<<<<<");
+    return state.foodReducer;
+  });
+
+  // console.log(foodDetail.id, "<<<<")
+
   useEffect(() => {
     dispatch(fetchCategory());
-  }, []);
+    setForm({
+      name: foodDetail.name,
+      price: foodDetail.price,
+      imageUrl: foodDetail.imageUrl,
+      description: foodDetail.description,
+      quantity: foodDetail.quantity,
+      CategoryId: foodDetail.CategoryId,
+      discount: foodDetail.discount,
+    });
+  }, [foodDetail]);
 
   const [form, setForm] = useState({
-    name: "",
-    price: "",
-    imageUrl: "",
-    description: "",
-    quantity: "",
-    CategoryId: "",
-    discount: "",
+    name: foodDetail.name,
+    price: foodDetail.price,
+    imageUrl: foodDetail.imageUrl,
+    description: foodDetail.description,
+    quantity: foodDetail.quantity,
+    CategoryId: foodDetail.CategoryId,
+    discount: foodDetail.discount,
   });
 
   console.log(form, "inputan form");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // console.log(name, value, "<<<");
-    setForm({
+    let newFood = {
       ...form,
-      [name]: value,
-    });
+    };
+    newFood[name] = value;
+    setForm(newFood);
   };
 
-  const handleSubmit = (event) => {
+  const handleEdit = (event) => {
     event.preventDefault();
-    console.log(form, "<<<<<<<");
-    dispatch(createFood(form)).then(() => {
-      navigate("/admin/list-product");
-    });
+    dispatch(updateFood(form, foodDetail.id));
+    navigate(`/admin/list-product`);
   };
 
   return (
     <Container>
-      <h1 className="mb-3 mt-5 text-center">Add Product</h1>
+      <h1 className="mb-3 mt-5 text-center">Edit Product</h1>
 
       <Container
         className="container h-50 w-70"
@@ -56,7 +69,7 @@ function AddProduct() {
       >
         <Row>
           <Col className="mt-5 bg-white">
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleEdit}>
               {/* PRODUCT IMAGE URL */}
               <Row className="px-3">
                 <Row>
@@ -308,4 +321,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default EditProduct;
