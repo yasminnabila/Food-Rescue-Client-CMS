@@ -9,6 +9,7 @@ import RegisterResto2 from "../views/RegisterResto2";
 import Dashboard from "../views/Dashboard";
 import ListProductPage from "../views/ListProductPage";
 import AddProduct from "../views/AddProductPage";
+import { ChartPage } from "../views/ChartPage";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path: "/admin/add-product",
         element: <AddProduct />,
       },
+      {
+        path: "/admin/chart",
+        element: <ChartPage/>
+      }
     ],
     loader: () => {
       if (!localStorage.getItem("access_token")) {
