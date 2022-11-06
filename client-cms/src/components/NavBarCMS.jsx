@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const navigate = useNavigate();
   return (
-    <Navbar bg="white" expand="lg">
+    <Navbar bg="white" expand="lg" className="fixed-top">
       <Container>
         <Navbar.Brand>
           <img
@@ -22,11 +22,9 @@ export default function NavBar() {
       <Navbar.Toggle />
       <Col className="col-2">
         <Nav className="me-auto d-flex align-items-center justify-content-center">
-          <Nav.Link style={{ color: "#77AA9C" }}>
-            Notification
-          </Nav.Link>
+          <Nav.Link style={{ color: "#77AA9C" }}>Notification</Nav.Link>
           <Nav.Link onClick={() => navigate(`/`)} style={{ color: "#77AA9C" }}>
-          Account
+            Account
           </Nav.Link>
         </Nav>
       </Col>

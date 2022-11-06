@@ -4,13 +4,7 @@ import { useNavigate } from "react-router-dom";
 function AddProduct() {
   const navigate = useNavigate();
   return (
-    <Container
-      className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#77AA9C",
-      }}
-    >
+    <Container>
       <h1 className="mb-3 mt-5">Add Product</h1>
 
       <Container
@@ -39,7 +33,7 @@ function AddProduct() {
                 <Form.Group className="mb-3 px-3">
                   <Row className="d-flex align-items-center justify-content-start">
                     <Form.Label className="text-black d-flex justify-content-start mt-3 ml-5">
-                      Input image URL of .jpg, .jpeg, or .png image format with
+                      Input image URL of .jpg, .jpeg, or .png format with
                       minimum size of 300 x 300 px to the field
                     </Form.Label>
 

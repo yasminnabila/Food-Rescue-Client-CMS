@@ -4,8 +4,7 @@ import LayoutCMS from "../layouts/LayoutCMS";
 import LandingPage from "../views/LandingPage";
 import LoginPage from "../views/LoginPage";
 import RegisterUser from "../views/RegisterUser";
-import RegisterResto1 from "../views/RegisterResto1";
-import RegisterResto2 from "../views/RegisterResto2";
+import RegisterResto from "../views/RegisterResto";
 import Dashboard from "../views/Dashboard";
 import ListProductPage from "../views/ListProductPage";
 import AddProduct from "../views/AddProductPage";
@@ -23,6 +22,7 @@ const router = createBrowserRouter([
         element: <LoginPage />,
         loader: () => {
           if (localStorage.getItem("access_token")) throw redirect("/admin");
+          else throw redirect("/login");
         },
       },
     ],
@@ -32,12 +32,8 @@ const router = createBrowserRouter([
     element: <RegisterUser />,
   },
   {
-    path: "/register-resto-1",
-    element: <RegisterResto1 />,
-  },
-  {
-    path: "/register-resto-2",
-    element: <RegisterResto2 />,
+    path: "/register-resto",
+    element: <RegisterResto />,
   },
   {
     element: <LayoutCMS />,
@@ -58,12 +54,11 @@ const router = createBrowserRouter([
     loader: () => {
       if (!localStorage.getItem("access_token")) {
         throw redirect("/login");
-      }
-      else if (
+      } else if (
         localStorage.getItem("access_token") &&
         !localStorage.getItem("restoId")
       ) {
-        throw redirect("/register-resto-1");
+        throw redirect("/register-resto");
       }
     },
   },

@@ -14,8 +14,6 @@ function RegisterUser() {
     phoneNumber: "",
   });
 
-  console.log(input)
-
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputRegister({
