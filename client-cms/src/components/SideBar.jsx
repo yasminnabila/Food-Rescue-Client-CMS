@@ -51,7 +51,7 @@ function SideBar() {
               Statistics
             </Nav.Link>
           </li>
-          <li className="nav-item d-flex justify-content-start">
+          {/* <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => navigate(`/`)}
               className="nav-link text-black small"
@@ -66,7 +66,7 @@ function SideBar() {
             >
               Settings
             </Nav.Link>
-          </li>
+          </li> */}
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => logOut()}
