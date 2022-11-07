@@ -20,15 +20,8 @@ export default function CardActiveMenu() {
   let data = food.filter((x) => {
     return x.is_active == true;
   });
-  data = data.length;
 
-  // let activeMenu = food.map((el) => {
-  //   console.log(el.is_active, "<<<<");
-  //   if (el.is_active == false) {
-  //     console.log(food.length, "length");
-  //     return food.length;
-  //   }
-  // });
+  data = data.length;
 
   return (
     <Card sx={{ width: 220, height: "auto" }}>
