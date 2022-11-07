@@ -10,11 +10,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function ChartPage() {
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: [],
     datasets: [
       {
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -39,13 +39,17 @@ export function ChartPage() {
   const {food} = useSelector((state) => {
     return state.foodReducer;
   });
+  food.forEach(x => {
+    data.labels.push(x.name)
+    data.datasets[0].data.push(x.sales)
+  })
   useEffect(() => {
     console.log(food)
     dispatch(fetchFood());
   }, []);
 
   return (
-    <Container style={{width: "500px"}}>
+    <Container style={{width: "500px"}} className="mt-5">
       <Pie data={data}/>
     </Container>
   );
