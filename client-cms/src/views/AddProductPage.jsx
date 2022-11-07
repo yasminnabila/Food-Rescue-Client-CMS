@@ -178,7 +178,7 @@ function AddProduct() {
                       onChange={handleChange}
                       className="w-25"
                     >
-                      <option disabled>Select food category</option>
+                      <option selected>Select food category</option>
                       {categories.map((el, index) => {
                         return (
                           <option value={el.id} key={el.id}>

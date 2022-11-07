@@ -38,11 +38,11 @@ function RegisterResto() {
     try {
       const response = await fetch(BASE_URL + `/resto/restaurants`, {
         method: "POST",
+        body: JSON.stringify(input),
         headers: {
           "Content-Type": "application/json",
           access_token: localStorage.getItem("access_token"),
         },
-        body: JSON.stringify(input),
       });
       let data = await response.json();
       if (!response.ok) throw data.message;
@@ -99,8 +99,8 @@ function RegisterResto() {
                 className="d-flex align-items-center justify-content-center"
               />
             </Row>
-            <h4 className="mt-5 mb-3 text-center">Start selling with Savvie!</h4>
-            <h5 className="mb-5 text-center">
+            <h4 className="mt-5 mb-3">Start selling with Savvie!</h4>
+            <h5 className="mb-5">
               {" "}
               Set up your business profile to continue. The information will be
               displayed in the Savvie app.

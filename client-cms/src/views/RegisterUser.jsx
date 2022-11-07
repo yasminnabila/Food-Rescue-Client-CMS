@@ -14,6 +14,8 @@ function RegisterUser() {
     phoneNumber: "",
   });
 
+  console.log(input, "<< input formnya");
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputRegister({
@@ -33,6 +35,7 @@ function RegisterUser() {
         body: JSON.stringify(input),
       });
       let data = await response.json();
+      console.log(data);
       if (!response.ok) throw data.message;
       setInputRegister({
         fullName: "",
@@ -51,7 +54,7 @@ function RegisterUser() {
         timerProgressBar: true,
       });
     } catch (err) {
-      console.log(err);
+      console.log(err, "<<<< error di register");
       Swal.fire({
         icon: "error",
         title: "Oops, something's wrong!",
