@@ -2,8 +2,34 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFood } from "../store/action/food";
+import { useEffect } from "react";
 
 export default function CardActiveMenu() {
+  const dispatch = useDispatch();
+  const { food } = useSelector((state) => {
+    console.log(state);
+    return state.foodReducer;
+  });
+
+  useEffect(() => {
+    dispatch(fetchFood());
+  }, []);
+
+  let data = food.filter((x) => {
+    return x.is_active == true;
+  });
+  data = data.length;
+
+  // let activeMenu = food.map((el) => {
+  //   console.log(el.is_active, "<<<<");
+  //   if (el.is_active == false) {
+  //     console.log(food.length, "length");
+  //     return food.length;
+  //   }
+  // });
+
   return (
     <Card sx={{ width: 220, height: "auto" }}>
       <CardContent>
@@ -15,7 +41,7 @@ export default function CardActiveMenu() {
           variant="body2"
           body="theme.typography.fontWeightBold"
         >
-          20
+          {data}
         </Typography>
       </CardContent>
     </Card>
