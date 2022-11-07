@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFood } from "../store/action/food";
 import RowsProduct from "../components/RowsProduct";
+import { fetchOrder } from "../store/action/order";
+import RowsOrder from "./RowsOrder";
 
 export default function Tables(props) {
   const dispatch = useDispatch();
@@ -16,8 +18,13 @@ export default function Tables(props) {
     return state.foodReducer;
   });
 
+  const { order } = useSelector((state) => {
+    return state.orderReducer;
+  });
+
   useEffect(() => {
     dispatch(fetchFood());
+    dispatch(fetchOrder());
   }, []);
 
   let tBody;
@@ -26,6 +33,8 @@ export default function Tables(props) {
   });
   if (status === "product") {
     tBody = food.map((e, i) => <RowsProduct key={e.id} food={e} no={i} />);
+  } else {
+    tBody = order.map((e, i) => <RowsOrder key={e.id} order={e} no={i} />);
   }
 
   return (
