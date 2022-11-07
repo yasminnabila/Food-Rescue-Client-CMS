@@ -46,6 +46,9 @@ function RegisterResto() {
       });
       let data = await response.json();
       if (!response.ok) throw data.message;
+      console.log(data, "<<<<<");
+      localStorage.setItem("restoId", data.restaurant.id);
+
       setInputRegister({
         name: "",
         logoUrl: "",
@@ -96,8 +99,8 @@ function RegisterResto() {
                 className="d-flex align-items-center justify-content-center"
               />
             </Row>
-            <h4 className="mt-5 mb-3">Start selling with Savvie!</h4>
-            <h5 className="mb-5">
+            <h4 className="mt-5 mb-3 text-center">Start selling with Savvie!</h4>
+            <h5 className="mb-5 text-center">
               {" "}
               Set up your business profile to continue. The information will be
               displayed in the Savvie app.

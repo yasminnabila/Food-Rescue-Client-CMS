@@ -1,54 +1,12 @@
-// import React from "react";
-// import "./ToggleSwitch.css";
 import { useState } from "react";
-
-// const ToggleSwitch = ({ label, status }) => {
-//   const [state, setState] = useState({ status });
-
-//   const handleChange = (event) => {
-//     setState({ ...state, [event.target.name]: event.target.checked });
-//   };
-
-//   return (
-//     <div className="container">
-//       {label}{" "}
-//       <div className="toggle-switch">
-//         <input
-//           type="checkbox"
-//           className="checkbox"
-//           name={label}
-//           id={label}
-//           value={status}
-//           checked={state.status}
-//           onChange={handleChange}
-//         />
-//         <label className="label" htmlFor={label}>
-//           <span className="inner" />
-//           <span className="switch" />
-//         </label>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ToggleSwitch;
-// import React, { Component } from "react";
 import Switch from "react-switch";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { updateActiveFood } from "../store/action/food";
 
-export default function ToggleSwitch({ status, props }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+export default function ToggleSwitch({ status, onChange }) {
   const [checked, setChecked] = useState(status);
   const handleChange = (nextChecked) => {
     setChecked(nextChecked);
+    onChange(nextChecked);
   };
-
-  // const handleUpdate = () => {
-  //   dispatch(updateActiveFood(id));
-  // };
 
   return (
     <div className="example">

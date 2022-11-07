@@ -143,21 +143,20 @@ export function updateStatusFood(food, id) {
     }
   };
 }
-export function updateActiveFood(food, id) {
+export function updateActiveFood(id, is_active) {
   return async (dispatch) => {
     try {
-      let response = await fetch(BASE_URL + `/resto/food-active/${id}`, {
+      let response = await fetch(BASE_URL + `/resto/food/food-active/${id}`, {
         method: "PATCH",
         headers: {
           access_token: localStorage.getItem("access_token"),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(food),
+        body: JSON.stringify({ is_active }),
       });
       if (!response.ok) {
         throw response.message;
       }
-      // successSwal("Food is updated successfully");
       dispatch(fetchFood());
     } catch (error) {
       console.log(error);

@@ -82,12 +82,14 @@ function RegisterUser() {
                 className="d-flex align-items-center justify-content-center"
               />
             </Row>
-            <h6 className="mt-5 mb-5">
+            <h6 className="mt-5 mb-5 text-center">
               By selling surplus food you will earn extra income, attract new
               customers and show that you care about the environment.
             </h6>
-            <h4 className="mb-0 text-black">Crate an admin account</h4>
-            <h5 className=" mb-5 text-black">
+            <h4 className="mb-0 text-black text-center">
+              Crate an admin account
+            </h4>
+            <h5 className=" mb-5 text-black text-center">
               Set up your Savvie account in just minutes!
             </h5>
             <Row className="mb-3">

@@ -4,20 +4,26 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateFood } from "../store/action/food";
 import { fetchCategory } from "../store/action/category";
+import { useParams } from "react-router-dom";
 
 function EditProduct() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { id } = useParams();
   const { categories } = useSelector((state) => {
     return state.categoryReducer;
   });
 
   const { foodDetail } = useSelector((state) => {
-    // console.log(state, "INI DETAIL<<<<<");
     return state.foodReducer;
   });
 
-  // console.log(foodDetail.id, "<<<<")
+  console.log(foodDetail.id, "<<<<");
+  console.log(id, "paramssss");
+
+  // const handleClickUpdateActive = (status) => {
+  //   dispatch(updateActiveFood(id, status));
+  // };
 
   useEffect(() => {
     dispatch(fetchCategory());
@@ -258,32 +264,13 @@ function EditProduct() {
                   </h1>
                   <Row className="mt-2">
                     <Col className="col-3 d-flex justify-content-start">
-                      <h5>Active</h5>
+                      <h5>Stock</h5>
                     </Col>
                     <Col className="col-9 d-flex justify-content-start">
                       <text className="muted">Required</text>
                     </Col>
                   </Row>
                 </Row>
-                {/* Product isActive */}
-                <Form.Group className="mb-3 px-3">
-                  <Row className="d-flex align-items-center justify-content-start">
-                    <Form.Label className="text-black d-flex justify-content-start mt-3 ml-5">
-                      Is product active?
-                    </Form.Label>
-
-                    <Form.Select
-                      aria-label="Default select example"
-                      className="w-25"
-                      name="isActive"
-                      value={form.isActive}
-                      onChange={handleChange}
-                    >
-                      <option>true</option>
-                      <option>false</option>
-                    </Form.Select>
-                  </Row>
-                </Form.Group>
 
                 {/* Product Stock */}
                 <Form.Group className="mb-3 px-3">
