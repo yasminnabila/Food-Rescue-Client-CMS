@@ -15,7 +15,7 @@ function ListOrderPage() {
           <Tables
             status={"order"}
             head={[
-              "No",
+              "Order Id",
               "Product Name",
               "Photo",
               "Price",

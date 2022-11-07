@@ -35,7 +35,12 @@ export default function RowsProduct(props) {
       <td className="align-middle">{name}</td>
       <td className="align-middle">
         <div className="items-center w-40 rounded">
-          <img src={imageUrl} alt={name} style={{ height: "8rem" }} />
+          <img
+            src={imageUrl}
+            alt={name}
+            style={{ height: "75px", width: "75px" }}
+            className="rounded-circle"
+          />
         </div>
       </td>
       <td className="align-middle">{price}</td>
