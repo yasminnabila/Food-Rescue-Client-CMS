@@ -8,7 +8,7 @@ export default function CardPortionSaved() {
     <Card sx={{ width: 220, height: "auto" }}>
       <CardContent>
         <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-          Total Active Menu
+          Portions Saved
         </Typography>
         <Typography
           sx={{ fontSize: 34 }}
