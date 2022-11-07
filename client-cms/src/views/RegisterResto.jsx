@@ -10,8 +10,13 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { BASE_URL } from "../store/actionTypes/actionTypes";
+import Geocode from "react-geocode";
+
 
 function RegisterResto() {
+  Geocode.setApiKey("AIzaSyAw99RzBxkw-upCWfK5gVURlEMRzTn3pOI");
+  Geocode.setLanguage("id");
+
   const navigate = useNavigate();
   const [input, setInputRegister] = useState({
     name: "",
@@ -36,6 +41,18 @@ function RegisterResto() {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
+      Geocode.fromAddress(input.address).then(
+        (response) => {
+          const { lat, lng } = response.results[0].geometry.location;
+          input.latitude = lat;
+          input.longitude = lng
+          console.log(lat, lng);
+          console.log(input, "<><><><><><><>")
+        },
+        (error) => {
+          console.error(error);
+        }
+      );      
       const response = await fetch(BASE_URL + `/resto/restaurants`, {
         method: "POST",
         body: JSON.stringify(input),

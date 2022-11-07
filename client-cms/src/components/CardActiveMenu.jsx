@@ -18,7 +18,7 @@ export default function CardActiveMenu() {
   }, []);
 
   let data = food.filter((x) => {
-    return x.is_active == true;
+    return x.is_active === true;
   });
 
   data = data.length;
