@@ -38,14 +38,17 @@ function RegisterResto() {
     try {
       const response = await fetch(BASE_URL + `/resto/restaurants`, {
         method: "POST",
+        body: JSON.stringify(input),
         headers: {
           "Content-Type": "application/json",
           access_token: localStorage.getItem("access_token"),
         },
-        body: JSON.stringify(input),
       });
       let data = await response.json();
       if (!response.ok) throw data.message;
+      console.log(data, "<<<<<");
+      localStorage.setItem("restoId", data.restaurant.id);
+
       setInputRegister({
         name: "",
         logoUrl: "",

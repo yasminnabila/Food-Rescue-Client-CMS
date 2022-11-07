@@ -1,5 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
-import DashboardCards from "../components/DashboardCards";
+import CardOrder from "../components/CardOrder";
+import CardActiveMenu from "../components/CardActiveMenu";
+import CardPortionSaved from "../components/CardPortionSaved";
+import CardPreventedLoss from "../components/CardPreventedLoss";
 
 function Dashboard() {
   return (
@@ -13,16 +16,16 @@ function Dashboard() {
         </Row>
         <Row className="mt-3">
           <Col className="p-4 col-3">
-            <DashboardCards />
+            <CardOrder />
           </Col>
           <Col className="p-4 col-3">
-            <DashboardCards />
+            <CardActiveMenu />
           </Col>
           <Col className="p-4 col-3">
-            <DashboardCards />
+            <CardPortionSaved />
           </Col>
           <Col className="p-4 col-3">
-            <DashboardCards />
+            <CardPreventedLoss />
           </Col>
         </Row>
       </Container>

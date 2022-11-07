@@ -14,6 +14,8 @@ function RegisterUser() {
     phoneNumber: "",
   });
 
+  console.log(input, "<< input formnya");
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputRegister({
@@ -33,6 +35,7 @@ function RegisterUser() {
         body: JSON.stringify(input),
       });
       let data = await response.json();
+      console.log(data);
       if (!response.ok) throw data.message;
       setInputRegister({
         fullName: "",
@@ -51,7 +54,7 @@ function RegisterUser() {
         timerProgressBar: true,
       });
     } catch (err) {
-      console.log(err);
+      console.log(err, "<<<< error di register");
       Swal.fire({
         icon: "error",
         title: "Oops, something's wrong!",
@@ -82,12 +85,14 @@ function RegisterUser() {
                 className="d-flex align-items-center justify-content-center"
               />
             </Row>
-            <h6 className="mt-5 mb-5">
+            <h6 className="mt-5 mb-5 text-center">
               By selling surplus food you will earn extra income, attract new
               customers and show that you care about the environment.
             </h6>
-            <h4 className="mb-0 text-black">Crate an admin account</h4>
-            <h5 className=" mb-5 text-black">
+            <h4 className="mb-0 text-black text-center">
+              Crate an admin account
+            </h4>
+            <h5 className=" mb-5 text-black text-center">
               Set up your Savvie account in just minutes!
             </h5>
             <Row className="mb-3">

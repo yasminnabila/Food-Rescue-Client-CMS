@@ -23,8 +23,6 @@ function RegisterResto() {
     address: "",
   });
 
-  console.log(input);
-
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputRegister({
@@ -32,6 +30,8 @@ function RegisterResto() {
       [name]: value,
     });
   };
+
+  console.log(input, "<<<");
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -48,7 +48,7 @@ function RegisterResto() {
       if (!response.ok) throw data.message;
       console.log(data, "<<<<<");
       localStorage.setItem("restoId", data.restaurant.id);
-      
+
       setInputRegister({
         name: "",
         logoUrl: "",
@@ -199,6 +199,34 @@ function RegisterResto() {
                     style={{ height: "50px" }}
                   />
                 </FloatingLabel>
+              </Form.Group>
+
+              {/* Long Lat */}
+              <Form.Group controlId="formGridLatitude">
+                <Form.Label className="text-black d-flex justify-content-start">
+                  Latitude
+                </Form.Label>
+                <Form.Control
+                  name="latitude"
+                  value={input.latitude}
+                  onChange={handleOnChange}
+                  type="text"
+                  placeholder="Latitude"
+                  className="mb-3"
+                />
+              </Form.Group>
+              <Form.Group controlId="formGridLongitude">
+                <Form.Label className="text-black d-flex justify-content-start">
+                  Longitude
+                </Form.Label>
+                <Form.Control
+                  name="longitude"
+                  value={input.longitude}
+                  onChange={handleOnChange}
+                  type="text"
+                  placeholder="Longitude"
+                  className="mb-3"
+                />
               </Form.Group>
 
               {/* Business Opening Hour */}

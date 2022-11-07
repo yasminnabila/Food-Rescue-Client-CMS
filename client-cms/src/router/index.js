@@ -31,7 +31,6 @@ const router = createBrowserRouter([
             throw redirect("/admin");
           else if (localStorage.getItem("access_token"))
             throw redirect("/register-resto");
-          // else throw redirect("/login");
         },
       },
     ],

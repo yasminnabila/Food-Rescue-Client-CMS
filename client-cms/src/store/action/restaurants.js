@@ -1,8 +1,4 @@
-import {
-  SET_RESTAURANT,
-  BASE_URL,
-} from "../actionTypes/actionTypes";
-
+import { SET_RESTAURANT, BASE_URL } from "../actionTypes/actionTypes";
 
 export function setRestaurant(data) {
   return {
@@ -29,3 +25,4 @@ export function fetchRestaurant() {
     }
   };
 }
+

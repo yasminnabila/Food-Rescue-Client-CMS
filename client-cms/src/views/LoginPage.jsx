@@ -40,9 +40,11 @@ function LoginPage() {
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("id", data.id);
         localStorage.setItem("restoId", data.restoId);
+        localStorage.setItem("username", data.user)
       } else if (access_token) {
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("id", data.id);
+         localStorage.setItem("username", data.user);
       }
 
       navigate("/admin");
@@ -112,9 +114,8 @@ function LoginPage() {
             >
               Login
             </Button>
-            <Row className="mt-3">
+            <Row className="mt-3 text-center">
               <h6>Don’t have an account?</h6>
-
               <Link
                 to="/register-user"
                 className="nav-link"

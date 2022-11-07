@@ -1,5 +1,9 @@
 import * as React from "react";
-import { deleteFood, foodDetailById } from "../store/action/food";
+import {
+  deleteFood,
+  foodDetailById,
+  updateActiveFood,
+} from "../store/action/food";
 import ToggleSwitch from "./ToggleSwitch";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -9,13 +13,19 @@ export default function RowsProduct(props) {
   const navigate = useNavigate();
   const { no, food } = props;
   const { id, name, imageUrl, price, quantity, is_active } = food;
+
   const handleClickEdit = (event, id) => {
     event.preventDefault();
     dispatch(foodDetailById(id));
     navigate(`/admin/edit-product/${id}`);
   };
+
   const handleDelete = () => {
     dispatch(deleteFood(id));
+  };
+
+  const handleClickUpdateActive = (status) => {
+    dispatch(updateActiveFood(id, status));
   };
   return (
     <tr className="align-items-center">
@@ -31,7 +41,7 @@ export default function RowsProduct(props) {
       <td className="align-middle">{price}</td>
       <td className="align-middle">{quantity}</td>
       <td className="align-middle">
-        <ToggleSwitch label="Active" status={is_active}  />
+        <ToggleSwitch status={is_active} onChange={handleClickUpdateActive} />
       </td>
       <td className="align-middle">
         <button
