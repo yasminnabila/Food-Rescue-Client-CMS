@@ -1,11 +1,11 @@
-import NavBarCMS from "../components/NavBarCMS";
+// import NavBarCMS from "../components/NavBarCMS";
 import SideBar from "../components/SideBar";
 import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
     <>
-      <NavBarCMS />
+      {/* <NavBarCMS /> */}
       <div className="container-fluid" style={{ minHeight: "100vh" }}>
         <div className="row">
           <SideBar />
@@ -14,7 +14,7 @@ export default function Layout() {
             style={{
               minHeight: "100vh",
               backgroundColor: "#77AA9C",
-              paddingTop: "70px",
+              // paddingTop: "70px",
             }}
           >
             <Outlet />
