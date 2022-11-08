@@ -15,16 +15,13 @@ function RestaurantBanner() {
   }, []);
 
   return (
-    <Card
-      style={{ width: "11rem", height: "6rem" }}
-      className="d-flex align-items-center mb-3 mt-2 mx-auto"
-    >
+    <Card className="d-flex align-items-center mb-3 mt-2 p-1">
       <Row className="d-flex align-items-center">
         <Col className="col-6">
           <Card.Img
             variant="top"
             src={restaurant.logoUrl}
-            width="250"
+            width="50"
             height="auto"
             className="d-inline-block align-top"
             alt="Restaurant Logo"
@@ -32,13 +29,24 @@ function RestaurantBanner() {
         </Col>
         <Col className="col-6">
           <Row>
-            <h6 className="d-flex justify-content-start">{restaurant.name}</h6>
-            <text style={{ fontSize: "0.6rem" }}>
+            <text
+              className="d-flex justify-content-start"
+              style={{ fontSize: "1rem" }}
+            >
+              Rate: {restaurant.rate}
+            </text>
+            <text
+              className="d-flex justify-content-start"
+              style={{ fontSize: "0.8rem" }}
+            >
+              Review: {restaurant.review_count}
+            </text>
+            {/* <text style={{ fontSize: "0.6rem" }}>
               Open: {restaurant.open_time}
             </text>
             <text style={{ fontSize: "0.6rem" }}>
               Close: {restaurant.close_time}
-            </text>
+            </text> */}
           </Row>
         </Col>
       </Row>

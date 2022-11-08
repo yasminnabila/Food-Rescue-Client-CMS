@@ -13,7 +13,8 @@ export default function RowsProduct(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { no, food } = props;
-  const { id, name, imageUrl, price, quantity, is_active } = food;
+  const { id, name, imageUrl, price, quantity, discount, newPrice, is_active } =
+    food;
 
   const handleClickEdit = (event, id) => {
     event.preventDefault();
@@ -52,15 +53,21 @@ export default function RowsProduct(props) {
           />
         </div>
       </td>
-      <td className="align-middle">{formatPrice(price)}</td>
+      <td className="align-middle">
+        {formatPrice(price).substring(0, formatPrice(price).length - 3)}
+      </td>
+      <td className="align-middle">{discount} %</td>
+      <td className="align-middle">
+        {formatPrice(newPrice).substring(0, formatPrice(newPrice).length - 3)}
+      </td>
       <td className="align-middle">{quantity}</td>
       <td className="align-middle">
         <ToggleSwitch status={is_active} onChange={handleClickUpdateActive} />
       </td>
       <td className="align-middle">
-        <button
+        <button 
           onClick={(event) => handleClickEdit(event, id)}
-          className="btn btn-dark"
+          className="btn btn-dark mx-2"
           style={{ backgroundColor: "#77AA9C", color: "black" }}
         >
           Edit

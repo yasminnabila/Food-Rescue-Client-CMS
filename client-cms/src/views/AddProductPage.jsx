@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createFood } from "../store/action/food";
 import { fetchCategory } from "../store/action/category";
+import Swal from "sweetalert2";
 
 function AddProduct() {
   const navigate = useNavigate();
@@ -27,11 +28,10 @@ function AddProduct() {
     discount: "",
   });
 
-  console.log(form, "inputan form");
+  // console.log(form, "inputan form");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // console.log(name, value, "<<<");
     setForm({
       ...form,
       [name]: value,

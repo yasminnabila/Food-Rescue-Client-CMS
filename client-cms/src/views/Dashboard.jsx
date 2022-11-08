@@ -7,7 +7,7 @@ import CardPreventedLoss from "../components/CardPreventedLoss";
 function Dashboard() {
   return (
     <>
-      <Container>
+      <Container style={{ transform: "scale(95%)" }}>
         <Row className="mt-5">
           <h1 className="d-flex justify-content-start">Dashboard</h1>
           <h5 className="d-flex justify-content-start">
