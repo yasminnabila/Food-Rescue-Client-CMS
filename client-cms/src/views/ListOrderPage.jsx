@@ -1,14 +1,15 @@
 import { Container, Row } from "react-bootstrap";
 import Tables from "../components/Tables";
-// import { useNavigate } from "react-router-dom";
 
 function ListOrderPage() {
-  // const navigate = useNavigate();
   return (
     <>
-      <Container>
+      <Container style={{ transform: "scale(95%)" }}>
         <Row className="mt-5">
-          <h1 className="d-flex justify-content-start">List Order</h1>
+          <h1 className="d-flex justify-content-start">Order List</h1>
+          <h5>
+            Orders bought today. You may already pack them for convenience.
+          </h5>
         </Row>
         <Row className="mb-3"></Row>
         <Row>
@@ -22,7 +23,6 @@ function ListOrderPage() {
               "Quantity",
               "Price",
               "Order Type",
-              "Delivery Fee",
             ]}
           />
         </Row>

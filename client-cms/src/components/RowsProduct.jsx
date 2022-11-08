@@ -7,6 +7,7 @@ import {
 import ToggleSwitch from "./ToggleSwitch";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 
 export default function RowsProduct(props) {
   const dispatch = useDispatch();
@@ -27,6 +28,14 @@ export default function RowsProduct(props) {
   const handleClickUpdateActive = (status) => {
     dispatch(updateActiveFood(id, status));
   };
+
+  const formatPrice = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
+
   return (
     <tr className="align-items-center">
       <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
@@ -43,7 +52,7 @@ export default function RowsProduct(props) {
           />
         </div>
       </td>
-      <td className="align-middle">{price}</td>
+      <td className="align-middle">{formatPrice(price)}</td>
       <td className="align-middle">{quantity}</td>
       <td className="align-middle">
         <ToggleSwitch status={is_active} onChange={handleClickUpdateActive} />
@@ -52,9 +61,11 @@ export default function RowsProduct(props) {
         <button
           onClick={(event) => handleClickEdit(event, id)}
           className="btn btn-dark"
+          style={{ backgroundColor: "#77AA9C", color: "black" }}
         >
           Edit
         </button>
+        {/* <Container></Container> */}
         <button onClick={handleDelete} className="btn btn-dark">
           Delete
         </button>

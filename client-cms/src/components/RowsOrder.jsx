@@ -1,6 +1,24 @@
 import * as React from "react";
 
 export default function RowsOrder(props) {
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      hour12: true,
+      minute: "numeric",
+    });
+  };
+
+  const formatPrice = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
+
   const { no, order } = props;
   const { FoodId, itemPrice, quantity, createdAt, Payment } = order;
 
@@ -10,12 +28,11 @@ export default function RowsOrder(props) {
         {no + 1}
       </th>
       <td className="align-middle">{Payment?.User?.fullName}</td>
-      <td className="align-middle">{createdAt}</td>
+      <td className="align-middle">{formatDate(createdAt)}</td>
       <td className="align-middle">{FoodId}</td>
       <td className="align-middle">{quantity}</td>
-      <td className="align-middle">{itemPrice}</td>
+      <td className="align-middle">{formatPrice(itemPrice)}</td>
       <td className="align-middle">{Payment?.is_delivery}</td>
-      <td className="align-middle">{Payment?.deliveryFee}</td>
     </tr>
   );
 }

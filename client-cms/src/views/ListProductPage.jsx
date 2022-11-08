@@ -6,9 +6,9 @@ function ListProductPage() {
   const navigate = useNavigate();
   return (
     <>
-      <Container>
+      <Container style={{ transform: "scale(95%)" }}>
         <Row className="mt-5">
-          <h1 className="d-flex justify-content-start">List Product</h1>
+          <h1 className="d-flex justify-content-start">Product List</h1>
         </Row>
         <Row className="mb-3">
           <Col className="col-9"></Col>
@@ -16,6 +16,7 @@ function ListProductPage() {
             <Button
               onClick={() => navigate(`/admin/add-product`)}
               className="btn-light btn"
+              style={{ color: "#77AA9C" }}
             >
               {" "}
               + Add Product
