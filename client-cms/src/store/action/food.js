@@ -2,6 +2,7 @@ import {
   BASE_URL,
   SET_FOOD,
   SET_FOOD_DETAIL,
+  SET_FOOD_FILTER,
 } from "../actionTypes/actionTypes";
 
 export function setFood(data) {
@@ -13,6 +14,12 @@ export function setFood(data) {
 export function setFoodDetail(data) {
   return {
     type: SET_FOOD_DETAIL,
+    payload: data,
+  };
+}
+export function setFoodFilter(data) {
+  return {
+    type: SET_FOOD_FILTER,
     payload: data,
   };
 }
@@ -50,6 +57,26 @@ export function foodDetailById(id) {
       }
       const data = await response.json();
       dispatch(setFoodDetail(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function fetchFilter(id) {
+  return async (dispatch) => {
+    try {
+      let response = await fetch(BASE_URL + `/resto/food/filter/${id}`, {
+        headers: {
+          access_token: localStorage.getItem("access_token"),
+        },
+      });
+      console.log(response, "<<<<<<<<<,")
+      if (!response.ok) {
+        throw response.message;
+      }
+      const data = await response.json();
+      console.log(data, ">>>>>>>>>>>")
+      dispatch(setFoodFilter(data));
     } catch (error) {
       console.log(error);
     }
