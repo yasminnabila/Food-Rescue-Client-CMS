@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { Container } from 'react-bootstrap';
 import { useEffect } from 'react';
-import { fetchFood } from '../store/action/food';
+import { fetchFilter } from '../store/action/food';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -36,20 +37,42 @@ export function ChartPage() {
     ],
   }
   const dispatch = useDispatch()
-  const {food} = useSelector((state) => {
+  let navigate = useNavigate()
+  const {id} = useParams()
+  const {foodFilter} = useSelector((state) => {
     return state.foodReducer;
   });
-  food.forEach(x => {
-    data.labels.push(x.name)
-    data.datasets[0].data.push(x.sales)
+  const options = [
+    { value: 7, label: 'Last 7 days' },
+    { value: 14, label: 'Last 14 days' },
+    { value: 28, label: 'Last 28 days' }
+  ]
+  const [selected, setSelected] = useState(options[0].value);
+
+  const handleChange = event => {
+    setSelected(event.target.value);
+    navigate(`/admin/chart/${event.target.value}`)
+    // dispatch(fetchFilter(id))
+  }
+  foodFilter.forEach(x => {
+    if(x.OrderItems.length != 0){
+      data.labels.push(x.name)
+      data.datasets[0].data.push(x.sales)
+    }
   })
   useEffect(() => {
-    console.log(food)
-    dispatch(fetchFood());
-  }, []);
+    dispatch(fetchFilter(id));
+  }, [foodFilter]);
 
   return (
-    <Container style={{width: "500px"}} className="mt-5">
+    <Container style={{width: "500px", backgroundColor: "white", padding: 10}} className="mt-5">
+      <select value={selected} onChange={handleChange}>
+        {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
       <Pie data={data}/>
     </Container>
   );

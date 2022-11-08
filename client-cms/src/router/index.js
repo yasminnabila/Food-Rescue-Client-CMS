@@ -77,7 +77,7 @@ const router = createBrowserRouter([
         element: <EditProductPage />,
       },
       {
-        path: "/admin/chart",
+        path: "/admin/chart/:id",
         element: <ChartPage />,
       },
     ],
