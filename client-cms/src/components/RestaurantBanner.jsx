@@ -17,7 +17,7 @@ function RestaurantBanner() {
   return (
     <Card className="d-flex align-items-center mb-3 mt-2 p-1">
       <Row className="d-flex align-items-center">
-        <Col className="col-6">
+        <Col className="col-5">
           <Card.Img
             variant="top"
             src={restaurant.logoUrl}
@@ -27,11 +27,11 @@ function RestaurantBanner() {
             alt="Restaurant Logo"
           />
         </Col>
-        <Col className="col-6">
+        <Col className="col-7">
           <Row>
             <text
               className="d-flex justify-content-start"
-              style={{ fontSize: "1rem" }}
+              style={{ fontSize: "0.8rem" }}
             >
               Rate: {restaurant.rate}
             </text>

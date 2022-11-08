@@ -82,7 +82,7 @@ function SideBar() {
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => navigate(`/admin/chart`)}
-              className="nav-link text-black small"
+              className="nav-link text-black small p-1"
             >
               <FaRegChartBar
                 style={{ color: "#77AA9C", size: "30rem", marginRight: "8px" }}
