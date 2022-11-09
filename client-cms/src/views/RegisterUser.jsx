@@ -204,7 +204,7 @@ function RegisterUser() {
                   variant="primary"
                   type="submit"
                   className="mt-3 border-0 btn btn-outline-black btn-outline-secondary"
-                  style={{ backgroundColor: "#77AA9C", color: "black" }}
+                  style={{ backgroundColor: "#77AA9C", color: "white" }}
                 >
                   Register
                 </Button>
