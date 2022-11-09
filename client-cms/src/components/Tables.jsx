@@ -21,7 +21,7 @@ export default function Tables(props) {
   });
 
   const { order } = useSelector((state) => {
-    // console.log(state, "<< order");
+    // console.log(state, "<< order  nihhhhhhh");
     return state.orderReducer;
   });
 
@@ -29,7 +29,9 @@ export default function Tables(props) {
     dispatch(fetchFood());
     dispatch(fetchOrder());
   }, []);
-  console.log(order);
+
+  console.log(order, "<<<< orderfood");
+  // console.log(food);
   let tBody;
   const tHead = head.map((e, i) => {
     return <th key={i + "x"}>{e}</th>;
@@ -38,9 +40,10 @@ export default function Tables(props) {
     tBody = food.map((e, i) => <RowsProduct key={e.id} food={e} no={i} />);
   } else {
     tBody = order.map((e, i) => {
-      if (e.Payment.status !== "Delivered") {
-        return <RowsOrder key={e.id} order={e} no={i} />;
-      }
+      // console.log(e, "<<<<<<<<<<?????????");
+      // if (e.Payment.status !== "Delivered") {
+      return <RowsOrder key={e.id} order={e} no={i} />;
+      // }
     });
   }
 

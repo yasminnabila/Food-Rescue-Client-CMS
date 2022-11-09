@@ -9,24 +9,25 @@ import { useEffect } from "react";
 export default function CardPortionSaved() {
   const dispatch = useDispatch();
   const { order } = useSelector((state) => {
-    console.log(state);
+    // console.log(state);
     return state.orderReducer;
   });
 
   useEffect(() => {
     dispatch(fetchOrder());
   }, []);
-  let data = order.map((e, i) => {
-    if (e.Payment.status) {
-      return e.Payment?.status;
-    }
-  });
 
-  let paid = data.filter((x) => {
-    return x === "Delivered";
-  });
+  // let data = order.map((e, i) => {
+  //   if (e.Payment.status) {
+  //     return e.Payment?.status;
+  //   }
+  // });
 
-  paid = paid.length;
+  // let paid = data.filter((x) => {
+  //   return x === "Delivered";
+  // });
+
+  // paid = paid.length;
 
   return (
     <Card sx={{ width: 220, height: "auto" }}>
@@ -39,7 +40,7 @@ export default function CardPortionSaved() {
           variant="body2"
           body="theme.typography.fontWeightBold"
         >
-          {paid}
+          {/* {paid} */}
         </Typography>
       </CardContent>
     </Card>

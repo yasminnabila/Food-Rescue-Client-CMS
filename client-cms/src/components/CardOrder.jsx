@@ -18,10 +18,11 @@ export default function CardOrder() {
   }, []);
 
   let data = order.map((e, i) => {
-    if (e.Payment.status) {
-      return e.Payment?.status;
-    }
+    // if (e.Payment.status) {
+    //   return e.Payment?.status;
+    // }
   });
+  console.log(order, "<<<ini card order");
 
   let paid = data.filter((x) => {
     return x !== "Delivered";
