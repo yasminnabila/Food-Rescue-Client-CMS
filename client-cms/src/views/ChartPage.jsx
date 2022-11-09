@@ -17,7 +17,7 @@ import { Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { fetchFilter } from "../store/action/food";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import moment from 'moment';
+// import moment from 'moment';
 
 ChartJS.register(
   ArcElement,
