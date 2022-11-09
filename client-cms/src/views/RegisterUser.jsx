@@ -176,12 +176,13 @@ function RegisterUser() {
                 />
               </Form.Group>
             </Row>
-            <Col>
+            <Col className="d-flex justify-content-center">
               <Button
                 onClick={() => navigate(`/`)}
                 variant="light"
                 type="button"
-                className="mt-3 margin-5 btn btn-light"
+                className="mt-3 margin-5 btn btn-light mx-3"
+                style={{ color: "black" }}
               >
                 Cancel
               </Button>

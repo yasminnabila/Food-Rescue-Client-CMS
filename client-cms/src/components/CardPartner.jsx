@@ -3,9 +3,9 @@ import { Card, Row, Col } from "react-bootstrap";
 function CardPartner() {
   return (
     <>
-      <Card style={{ width: "50rem" }}>
-        <Row className="p-3 d-flex justify-content-center">
-          <Col className="col-6">
+      <Card style={{ width: "50rem", height: "auto" }} className="mb-3">
+        <Row className="p-3 d-flex justify-content-center align-items-center">
+          <Col className="col-7">
             <Card.Body>
               <Card.Text>FOR FOOD BUSINESSES</Card.Text>
               <h4>Increase your revenue and reduce food waste</h4>
@@ -16,11 +16,11 @@ function CardPartner() {
               </h6>
             </Card.Body>
           </Col>
-          <Col classname="col-6 d-flex justify-content-center">
+          <Col classname="col-5 d-flex justify-content-center align-items-center">
             <Card.Img
               variant="top"
               className="d-block w-75"
-              src={process.env.PUBLIC_URL + "/assets/dummy_partner.png"}
+              src={process.env.PUBLIC_URL + "/assets/partner.png"}
             />
           </Col>
         </Row>

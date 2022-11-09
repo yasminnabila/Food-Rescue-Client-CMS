@@ -65,7 +65,7 @@ function LoginPage() {
   return (
     <Container
       fluid
-      className="d-flex justify-content-center"
+      className="d-flex justify-content-center mt-5"
       style={{
         minHeight: "100vh",
         backgroundColor: "#77AA9C",

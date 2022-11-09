@@ -3,8 +3,8 @@ import { Card, Row, Col } from "react-bootstrap";
 function CardCust() {
   return (
     <>
-      <Card className="w-75">
-        <Row className="p-3">
+      <Card style={{ width: "50rem", height: "auto" }} className="mt-5">
+        <Row className="p-3 d-flex align-items-center">
           <Col className="col-7">
             <Card.Body>
               <Card.Text>FOR CONSUMERS</Card.Text>
@@ -16,11 +16,11 @@ function CardCust() {
               </h6>
             </Card.Body>
           </Col>
-          <Col classname="col-5 d-flex justify-content-center">
+          <Col classname="col-5 d-flex justify-content-center align-items-center">
             <Card.Img
               variant="top"
               className="d-block w-75"
-              src={process.env.PUBLIC_URL + "/assets/dummy_card_cust.png"}
+              src={process.env.PUBLIC_URL + "/assets/icon.png"}
             />
           </Col>
         </Row>
