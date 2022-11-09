@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   Chart as ChartJS,
   ArcElement,
-  Legend, 
+  Legend,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -17,7 +17,7 @@ import { Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { fetchFilter } from "../store/action/food";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import {faker} from "@faker-js/faker"
+import { faker } from "@faker-js/faker";
 
 ChartJS.register(
   ArcElement,
@@ -42,43 +42,43 @@ export function ChartPage() {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top'
+        position: "top",
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: "Chart.js Line Chart",
       },
     },
   };
-  function formatDate(date){
-
+  function formatDate(date) {
     var dd = date.getDate();
-    var mm = date.getMonth()+1;
+    var mm = date.getMonth() + 1;
     var yyyy = date.getFullYear();
-    if(dd<10) {dd='0'+dd}
-    if(mm<10) {mm='0'+mm}
-    date = mm+'/'+dd;
-    return date
- }
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+    date = mm + "/" + dd;
+    return date;
+  }
   let labels = [];
-  for (var i=0; i<id; i++) {
+  for (var i = 0; i < id; i++) {
     var d = new Date();
     d.setDate(d.getDate() - i);
-    labels.push( formatDate(d) )
+    labels.push(formatDate(d));
   }
-  // labels.forEach(x => {
-    
-  // })
-  
+
   const dataChart = {
     labels,
     datasets: [
       {
         fill: true,
-        label: 'Dataset 2',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        label: "Dataset 2",
+        data: [],
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
     ],
   };
@@ -108,24 +108,36 @@ export function ChartPage() {
       },
     ],
   };
-  const arrayQuantity = []
-  const arrayDate = []
-  foodFilter.map(x => {
-      x.OrderItems.map(y => {
-        arrayQuantity.push(y.quantity)
-        arrayDate.push((y.Payment.updatedAt).toString().substring(0, 10).split("-").join("/"))
-      })
-  })
-  const date = new Date().toString().substring(0,10)
-  console.log(arrayQuantity, "11111111111")
-  console.log(arrayDate, "22222222222")
-  // console.log([...new Set(arrayDate)], "array<<<<<<<<<")
+  const arrayQuantity = [];
+  const arrayDate = [];
+  const obj = {};
+
+  foodFilter.map((x) => {
+    x.OrderItems.map((y) => {
+      arrayQuantity.push(y.quantity);
+      arrayDate.push(
+        y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/")
+      );
+    });
+  });
+  arrayDate.forEach((element, index) => {
+    obj[element] = +arrayQuantity[index];
+  });
+  for (let key in obj) {
+    labels.forEach((x, i) => {
+      console.log(key.substring(5, 10), x);
+      if (key.substring(5, 10) == x) {
+        dataChart.datasets[0].data.push(obj[key]);
+      }
+    });
+  }
+  const date = new Date().toString().substring(0, 10);
   const options = [
     { value: 7, label: "Last 7 days" },
     { value: 14, label: "Last 14 days" },
     { value: 28, label: "Last 28 days" },
   ];
-  
+
   const [selected, setSelected] = useState(options[0].value);
 
   const handleChange = (event) => {
