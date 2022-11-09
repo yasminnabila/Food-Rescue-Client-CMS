@@ -33,14 +33,14 @@ function RegisterUser() {
         (response) => {
           const { lat, lng } = response.results[0].geometry.location;
           input.latitude = lat;
-          input.longitude = lng
+          input.longitude = lng;
           console.log(lat, lng);
-          console.log(input, "<><><><><><><>")
+          console.log(input, "<><><><><><><>");
         },
         (error) => {
           console.error(error);
         }
-      );      
+      );
       const response = await fetch(BASE_URL + `/signup`, {
         method: "POST",
         headers: {
