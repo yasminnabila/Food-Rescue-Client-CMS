@@ -1,4 +1,4 @@
-import { Button, Form, Row, Container } from "react-bootstrap";
+import { Button, Form, Row, Container, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -40,11 +40,11 @@ function LoginPage() {
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("id", data.id);
         localStorage.setItem("restoId", data.restoId);
-        localStorage.setItem("username", data.user)
+        localStorage.setItem("username", data.user);
       } else if (access_token) {
         localStorage.setItem("access_token", data.access_token);
         localStorage.setItem("id", data.id);
-         localStorage.setItem("username", data.user);
+        localStorage.setItem("username", data.user);
       }
 
       navigate("/admin");
@@ -65,66 +65,82 @@ function LoginPage() {
   return (
     <Container
       fluid
-      className="d-flex justify-content-center mt-5"
+      className="d-flex justify-content-center mt-5 h-100"
       style={{
-        minHeight: "100vh",
-        backgroundColor: "#77AA9C",
-        paddingTop: "50px",
+        // minHeight: "100vh",
+        backgroundColor: "white",
       }}
     >
       <Container
-        className="container h-50 w-75 justify-content-center align-items-center mt-5"
-        style={{ backgroundColor: "white", transform: "scale(90%)" }}
+        fluid
+        className="justify-content-center align-items-center mt-2 border rounded"
+        style={{
+          backgroundColor: "white",
+          transform: "scale(80%)",
+          borderColor: "white",
+        }}
       >
-        <Row>
-          <Form onSubmit={handleOnSubmit} className="w-50 p-3 m-auto mt-5">
-            <h1 className="text-center mb-4 text-black">Partner Login</h1>
-            <Row className="mb-3">
-              <Form.Group controlId="formGridEmail">
-                <Form.Label className="text-black d-flex justify-content-start">
-                  Email address
-                </Form.Label>
-                <Form.Control
-                  value={input.email}
-                  onChange={handleOnChange}
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                />
-              </Form.Group>
+        <Row className="d-flex justify-content-center align-items-center">
+          <Col className="col-7 d-flex justify-content-center align-items-center">
+            <Form onSubmit={handleOnSubmit} className="w-75 m-auto mt-5">
+              <h1 className="text-center mb-4 text-black">Partner Login</h1>
+              <Row className="mb-3">
+                <Form.Group controlId="formGridEmail">
+                  <Form.Label className="text-black d-flex justify-content-start">
+                    Email address
+                  </Form.Label>
+                  <Form.Control
+                    value={input.email}
+                    onChange={handleOnChange}
+                    name="email"
+                    type="email"
+                    placeholder="Email"
+                  />
+                </Form.Group>
 
-              <Form.Group controlId="formGridPassword">
-                <Form.Label className="text-black form-label mt-3 d-flex justify-content-start">
-                  Password
-                </Form.Label>
-                <Form.Control
-                  value={input.password}
-                  onChange={handleOnChange}
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                />
-              </Form.Group>
-            </Row>
-            <Button
-              variant="primary"
-              type="submit"
-              className="mt-3"
-              style={{ backgroundColor: "#77AA9C", color: "black" }}
-            >
-              Login
-            </Button>
-            <Row className="mt-3 text-center">
-              <h6>Don’t have an account?</h6>
-              <Link
-                to="/register-user"
-                className="nav-link"
-                style={{ color: "#77AA9C" }}
+                <Form.Group controlId="formGridPassword">
+                  <Form.Label className="text-black form-label mt-3 d-flex justify-content-start">
+                    Password
+                  </Form.Label>
+                  <Form.Control
+                    value={input.password}
+                    onChange={handleOnChange}
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                  />
+                </Form.Group>
+              </Row>
+              <Button
+                variant="primary"
+                type="submit"
+                className="mt-3"
+                style={{ backgroundColor: "#77AA9C", color: "black" }}
               >
-                Create admin account
-              </Link>
-            </Row>
-          </Form>
+                Login
+              </Button>
+              <Row className="mt-3 text-center">
+                <h6>Don’t have an account?</h6>
+                <Link
+                  to="/register-user"
+                  className="nav-link"
+                  style={{ color: "#77AA9C", fontWeight: "bold" }}
+                >
+                  Create admin account
+                </Link>
+              </Row>
+            </Form>
+          </Col>
+          <Col
+            className="col-5 d-flex justify-content-center align-items-center p-1"
+            style={{ backgroundColor: "#77AA9C" }}
+          >
+            <img
+              className="d-flex justify-content-center align-items-center"
+              style={{ transform: "scale(80%)" }}
+              src={process.env.PUBLIC_URL + "/assets/login-asset.png"}
+            ></img>
+          </Col>
         </Row>
       </Container>
     </Container>
