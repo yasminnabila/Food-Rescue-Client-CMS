@@ -17,12 +17,11 @@ function ListOrderPage() {
             status={"order"}
             head={[
               "Order Id",
-              "Customer Name",
-              "Order Date",
-              "Product Name",
-              "Quantity",
-              "Price",
-              "Order Type",
+              "Cust. Name",
+              "Order Time",
+              "Qty",
+              "Offer",
+              "Status",
             ]}
           />
         </Row>

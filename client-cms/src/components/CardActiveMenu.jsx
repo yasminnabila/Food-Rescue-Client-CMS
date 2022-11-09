@@ -9,7 +9,7 @@ import { useEffect } from "react";
 export default function CardActiveMenu() {
   const dispatch = useDispatch();
   const { food } = useSelector((state) => {
-    console.log(state);
+    // console.log(state);
     return state.foodReducer;
   });
 

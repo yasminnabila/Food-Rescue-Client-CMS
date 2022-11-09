@@ -1,7 +1,4 @@
-import {
-  BASE_URL,
-  SET_ORDER
-} from "../actionTypes/actionTypes";
+import { BASE_URL, SET_ORDER } from "../actionTypes/actionTypes";
 
 export function setOrder(data) {
   return {
@@ -23,8 +20,9 @@ export function fetchOrder() {
       }
 
       const data = await response.json();
+      // console.log(data, "di store");
 
-      dispatch(setOrder(data));
+      dispatch(setOrder(data.Food));
     } catch (error) {
       console.log(error);
     }

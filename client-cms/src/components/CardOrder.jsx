@@ -4,27 +4,31 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrder } from "../store/action/order";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function CardOrder() {
   const dispatch = useDispatch();
   const { order } = useSelector((state) => {
-    console.log(state);
     return state.orderReducer;
   });
+
+  const [orderQty, setOrderQty] = useState(0);
 
   useEffect(() => {
     dispatch(fetchOrder());
   }, []);
 
-  let data = order.map((el) => {
-    // console.log(el.Payment, "<<<< id user di payment")
-    // console.log(localStorage.getItem("local storage id"))
-    return el.Payment.UserId === localStorage.getItem("restoId");
-  });
-
-
-  data = data.length;
+  useEffect(() => {
+    let qty = 0;
+    order.forEach((order) => {
+      order.OrderItems.forEach((item) => {
+        if (item.Payment.status !== "Delivered") {
+          qty += item.quantity;
+        }
+      });
+    });
+    setOrderQty(qty);
+  }, [order]);
 
   return (
     <Card sx={{ width: 220, height: "auto" }}>
@@ -37,7 +41,7 @@ export default function CardOrder() {
           variant="body2"
           body="theme.typography.fontWeightBold"
         >
-          {data}
+          {orderQty}
         </Typography>
       </CardContent>
     </Card>
