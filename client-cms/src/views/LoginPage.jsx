@@ -65,19 +65,19 @@ function LoginPage() {
   return (
     <Container
       fluid
-      className="d-flex justify-content-center mt-5 h-100"
+      className="d-flex justify-content-center mt-5 h-100 "
       style={{
         // minHeight: "100vh",
-        backgroundColor: "white",
+        backgroundColor: "#77AA9C",
       }}
     >
       <Container
         fluid
-        className="justify-content-center align-items-center mt-2 border rounded"
+        className="justify-content-center align-items-center mt-2 border rounded shadow-lg mb-5 bg-white rounded"
         style={{
           backgroundColor: "white",
           transform: "scale(80%)",
-          borderColor: "white",
+          borderColor: "black",
         }}
       >
         <Row className="d-flex justify-content-center align-items-center">
@@ -133,7 +133,7 @@ function LoginPage() {
           </Col>
           <Col
             className="col-5 d-flex justify-content-center align-items-center p-1"
-            style={{ backgroundColor: "#77AA9C" }}
+            style={{ backgroundColor: "white" }}
           >
             <img
               className="d-flex justify-content-center align-items-center"
