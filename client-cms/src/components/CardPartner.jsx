@@ -1,4 +1,5 @@
 import { Card, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function CardPartner() {
   return (
@@ -14,6 +15,13 @@ function CardPartner() {
                 peak hours is also bad business. Let us help you sell your
                 surplus food and turn it into good business.
               </h6>
+              <Link
+                to="/register-user"
+                className="nav-link"
+                style={{ fontWeight: "bold", color: "#77AA9C" }}
+              >
+                Start selling
+              </Link>
             </Card.Body>
           </Col>
           <Col classname="col-5 d-flex justify-content-center align-items-center">
