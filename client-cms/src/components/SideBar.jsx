@@ -81,7 +81,7 @@ function SideBar() {
           </li>
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
-              onClick={() => navigate(`/admin/chart/:id`)}
+              onClick={() => navigate(`/admin/chart/7`)}
               className="nav-link text-black small p-1"
             >
               <FaRegChartBar
