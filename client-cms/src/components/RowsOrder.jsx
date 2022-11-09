@@ -29,7 +29,7 @@ export default function RowsOrder(props) {
               {x.Payment.id}
             </th>
             <td className="align-middle">{x.Payment?.User?.fullName}</td>
-            <td className="align-middle">{formatDate(x.updatedAt)}</td>
+            <td className="align-middle">{formatDate(x.Payment.updatedAt)}</td>
             {/* <td className="align-middle">{listLagi}</td> */}
             <td className="align-middle">{x.quantity}</td>
             <td className="align-middle">

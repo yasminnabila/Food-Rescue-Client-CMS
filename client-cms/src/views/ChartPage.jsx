@@ -17,7 +17,7 @@ import { Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { fetchFilter } from "../store/action/food";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { faker } from "@faker-js/faker";
+import moment from 'moment';
 
 ChartJS.register(
   ArcElement,
@@ -69,6 +69,12 @@ export function ChartPage() {
     d.setDate(d.getDate() - i);
     labels.push(formatDate(d));
   }
+  // const currentMoment = moment().subtract(7, "days");
+  // const endMoment = moment().add(1, "days");
+  // while (currentMoment.isBefore(endMoment, "day")) {
+  //   console.log(currentMoment.format("MM/DD"));
+  //   currentMoment.add(1, "days");
+  // }
 
   const dataChart = {
     labels,
@@ -120,6 +126,7 @@ export function ChartPage() {
       );
     });
   });
+  console.log(arrayQuantity, arrayDate);
   arrayDate.forEach((element, index) => {
     obj[element] = +arrayQuantity[index];
   });
@@ -127,7 +134,11 @@ export function ChartPage() {
     labels.forEach((x, i) => {
       console.log(key.substring(5, 10), x);
       if (key.substring(5, 10) == x) {
-        dataChart.datasets[0].data.push(obj[key]);
+        if(!dataChart.datasets[0].data[i]) {
+          dataChart.datasets[0].data[i] = obj[key] 
+        }else{
+          dataChart.datasets[0].data[i] += obj[key] 
+        }
       }
     });
   }
