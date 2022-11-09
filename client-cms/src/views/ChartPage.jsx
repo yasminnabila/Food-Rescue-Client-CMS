@@ -1,23 +1,21 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
-  Chart as ChartJS,
   ArcElement,
-  Legend,
   CategoryScale,
+  Chart as ChartJS,
+  Filler,
+  Legend,
   LinearScale,
-  PointElement,
   LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Filler,
 } from "chart.js";
-import { Pie, Line } from "react-chartjs-2";
+import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
-import { useEffect } from "react";
+import { Line, Pie } from "react-chartjs-2";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchFilter } from "../store/action/food";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import moment from 'moment';
 
 ChartJS.register(
   ArcElement,
@@ -60,7 +58,7 @@ export function ChartPage() {
     if (mm < 10) {
       mm = "0" + mm;
     }
-    date = mm + "/" + dd;
+    date = yyyy + "/" + mm + "/" + dd;
     return date;
   }
   let labels = [];
@@ -69,12 +67,6 @@ export function ChartPage() {
     d.setDate(d.getDate() - i);
     labels.push(formatDate(d));
   }
-  // const currentMoment = moment().subtract(7, "days");
-  // const endMoment = moment().add(1, "days");
-  // while (currentMoment.isBefore(endMoment, "day")) {
-  //   console.log(currentMoment.format("MM/DD"));
-  //   currentMoment.add(1, "days");
-  // }
 
   const dataChart = {
     labels,
@@ -88,7 +80,8 @@ export function ChartPage() {
       },
     ],
   };
-  const data = {
+  let array = [];
+  let data = {
     labels: [],
     datasets: [
       {
@@ -118,31 +111,31 @@ export function ChartPage() {
   const arrayDate = [];
   const obj = {};
 
-  foodFilter.map((x) => {
-    x.OrderItems.map((y) => {
+  foodFilter.forEach((x) => {
+    x.OrderItems.forEach((y) => {
       arrayQuantity.push(y.quantity);
       arrayDate.push(
-        y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/")
+        y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/") 
       );
     });
   });
   console.log(arrayQuantity, arrayDate);
   arrayDate.forEach((element, index) => {
-    obj[element] = +arrayQuantity[index];
+    if(!obj[element]){
+      obj[element] = +arrayQuantity[index];
+    }else{
+      obj[element] += +arrayQuantity[index]
+    }
   });
+  console.log(obj)
   for (let key in obj) {
     labels.forEach((x, i) => {
-      console.log(key.substring(5, 10), x);
-      if (key.substring(5, 10) == x) {
-        if(!dataChart.datasets[0].data[i]) {
-          dataChart.datasets[0].data[i] = obj[key] 
-        }else{
-          dataChart.datasets[0].data[i] += obj[key] 
-        }
+      console.log(x, key, x == key, obj[key])
+      if (key == x) {
+        dataChart.datasets[0].data[i] = obj[key];
       }
     });
   }
-  const date = new Date().toString().substring(0, 10);
   const options = [
     { value: 7, label: "Last 7 days" },
     { value: 14, label: "Last 14 days" },
@@ -163,7 +156,7 @@ export function ChartPage() {
   });
   useEffect(() => {
     dispatch(fetchFilter(id));
-  }, [foodFilter]);
+  }, [id]);
 
   return (
     <>
