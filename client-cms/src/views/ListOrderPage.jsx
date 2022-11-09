@@ -18,7 +18,7 @@ function ListOrderPage() {
             head={[
               "Order Id",
               "Cust. Name",
-              "Total",
+              "Order Time",
               "Qty",
               "Offer",
               "Status",

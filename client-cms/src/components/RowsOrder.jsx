@@ -45,10 +45,6 @@ export default function RowsOrder(props) {
       }
     });
   }
-  console.log(order.OrderItems, "<<<<<<<<<<<<<<");
 
-  const { FoodId, itemPrice, quantity, createdAt, Payment } = order;
-
-  // console.log(Payment, "<<<payment");
   return <>{tData}</>;
 }
