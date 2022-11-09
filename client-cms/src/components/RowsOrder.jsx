@@ -18,10 +18,12 @@ export default function RowsOrder(props) {
       currency: "IDR",
     }).format(number);
   };
+
   let tData;
   const { no, order } = props;
   if (order.OrderItems.length > 0) {
     tData = order.OrderItems.map((x) => {
+      let total = x.quantity * x.itemPrice;
       if (x.Payment.status !== "Delivered") {
         return (
           <tr className="align-items-center">
@@ -34,10 +36,7 @@ export default function RowsOrder(props) {
             <td className="align-middle">{x.quantity}</td>
             <td className="align-middle">
               {" "}
-              {formatPrice(x.itemPrice).substring(
-                0,
-                formatPrice(x.itemPrice).length - 3
-              )}
+              {formatPrice(total).substring(0, formatPrice(total).length - 3)}
             </td>
             <td className="align-middle">{x.Payment?.status}</td>
           </tr>

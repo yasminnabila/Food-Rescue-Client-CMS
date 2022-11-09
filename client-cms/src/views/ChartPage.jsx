@@ -162,27 +162,35 @@ export function ChartPage() {
 
   return (
     <>
-      <select value={selected} onChange={handleChange}>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      <Row>
-        <Container
-          style={{ width: "500px", backgroundColor: "white", padding: 10 }}
-          className="mt-5"
-        >
-          <Line options={optionsChart} data={dataChart} />
-        </Container>
-        <Container
-          style={{ width: "500px", backgroundColor: "white", padding: 10 }}
-          className="mt-5"
-        >
-          <Pie data={data} />
-        </Container>
-      </Row>
+      <Container style={{ transform: "scale(95%)" }}>
+        <Row className="mt-5 mb-3">
+          <h1 className="d-flex justify-content-start">Stats</h1>
+          <h5 className="d-flex justify-content-start">
+            Daily sales statistics
+          </h5>
+        </Row>
+        <select value={selected} onChange={handleChange}>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <Row>
+          <Container
+            style={{ width: "500px", backgroundColor: "white", padding: 10 }}
+            className="mt-5"
+          >
+            <Line options={optionsChart} data={dataChart} />
+          </Container>
+          <Container
+            style={{ width: "500px", backgroundColor: "white", padding: 10 }}
+            className="mt-5"
+          >
+            <Pie data={data} />
+          </Container>
+        </Row>
+      </Container>
     </>
   );
 }

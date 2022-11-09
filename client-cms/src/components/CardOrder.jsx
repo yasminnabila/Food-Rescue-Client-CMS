@@ -34,7 +34,7 @@ export default function CardOrder() {
     <Card sx={{ width: 220, height: "auto" }}>
       <CardContent>
         <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
-          Active Order
+          Active Order Qty
         </Typography>
         <Typography
           sx={{ fontSize: 34 }}
