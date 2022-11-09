@@ -15,16 +15,16 @@ function Dashboard() {
           </h5>
         </Row>
         <Row className="mt-3">
-          <Col className="p-4 col-3">
+          <Col className="p-2 col-3">
             <CardOrder />
           </Col>
-          <Col className="p-4 col-3">
+          <Col className="p-2 col-3">
             <CardActiveMenu />
           </Col>
-          <Col className="p-4 col-3">
+          <Col className="p-2 col-3">
             <CardPortionSaved />
           </Col>
-          <Col className="p-4 col-3">
+          <Col className="p-2 col-3">
             <CardPreventedLoss />
           </Col>
         </Row>
