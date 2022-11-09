@@ -14,7 +14,7 @@ function EditProduct() {
     return state.categoryReducer;
   });
 
-  const { foodDetail } = useSelector((state) => {
+  const { foodDetail } = useSelector((state) => { 
     return state.foodReducer;
   });
 
