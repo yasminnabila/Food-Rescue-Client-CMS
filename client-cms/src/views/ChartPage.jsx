@@ -14,7 +14,6 @@ import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { Line, Pie } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
 import { fetchFilter } from "../store/action/food";
 import { Link, useNavigate, useParams } from "react-router-dom";
 // import moment from 'moment';
@@ -46,7 +45,7 @@ export function ChartPage() {
       },
       title: {
         display: true,
-        text: "Chart.js Line Chart",
+        // text: "Chart.js Line Chart",
       },
     },
   };
@@ -75,7 +74,7 @@ export function ChartPage() {
     datasets: [
       {
         fill: true,
-        label: "Dataset 2",
+        label: "Portion",
         data: [],
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",
@@ -117,22 +116,22 @@ export function ChartPage() {
     x.OrderItems.forEach((y) => {
       arrayQuantity.push(y.quantity);
       arrayDate.push(
-        y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/") 
+        y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/")
       );
     });
   });
   console.log(arrayQuantity, arrayDate);
   arrayDate.forEach((element, index) => {
-    if(!obj[element]){
+    if (!obj[element]) {
       obj[element] = +arrayQuantity[index];
-    }else{
-      obj[element] += +arrayQuantity[index]
+    } else {
+      obj[element] += +arrayQuantity[index];
     }
   });
-  console.log(obj)
+  console.log(obj);
   for (let key in obj) {
     labels.forEach((x, i) => {
-      console.log(x, key, x == key, obj[key])
+      console.log(x, key, x == key, obj[key]);
       if (key == x) {
         dataChart.datasets[0].data[i] = obj[key];
       }
@@ -166,8 +165,11 @@ export function ChartPage() {
         <Row className="mt-5 mb-3">
           <h1 className="d-flex justify-content-start">Stats</h1>
           <h5 className="d-flex justify-content-start">
-            Daily sales statistics
+            Reduction of food waste your business has contributed
           </h5>
+        </Row>
+        <Row>
+          <h6 className="mb-2">Filter by:</h6>
         </Row>
         <select value={selected} onChange={handleChange}>
           {options.map((option) => (
@@ -176,17 +178,24 @@ export function ChartPage() {
             </option>
           ))}
         </select>
-        <Row>
+
+        <Row className="mb-3">
           <Container
             style={{ width: "500px", backgroundColor: "white", padding: 10 }}
             className="mt-5"
           >
-            <Line options={optionsChart} data={dataChart} />
+            <h5 className="mt-3 mb-5 text-center">
+              Daily food rescued (by portion)
+            </h5>
+            <Line options={optionsChart} data={dataChart} className="mt-5" />
           </Container>
           <Container
             style={{ width: "500px", backgroundColor: "white", padding: 10 }}
             className="mt-5"
           >
+            <h5 className="mt-3 mb-5 text-center">
+              Total food rescued (by portion per menu)
+            </h5>
             <Pie data={data} />
           </Container>
         </Row>
