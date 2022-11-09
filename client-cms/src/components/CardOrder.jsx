@@ -17,14 +17,17 @@ export default function CardOrder() {
     dispatch(fetchOrder());
   }, []);
 
-  let data = order.map((el) => {
-    // console.log(el.Payment, "<<<< id user di payment")
-    // console.log(localStorage.getItem("local storage id"))
-    return el.Payment.UserId === localStorage.getItem("restoId");
+  let data = order.map((e, i) => {
+    if (e.Payment.status) {
+      return e.Payment?.status;
+    }
   });
 
+  let paid = data.filter((x) => {
+    return x !== "Delivered";
+  });
 
-  data = data.length;
+  paid = paid.length;
 
   return (
     <Card sx={{ width: 220, height: "auto" }}>
@@ -37,7 +40,7 @@ export default function CardOrder() {
           variant="body2"
           body="theme.typography.fontWeightBold"
         >
-          {data}
+          {paid}
         </Typography>
       </CardContent>
     </Card>

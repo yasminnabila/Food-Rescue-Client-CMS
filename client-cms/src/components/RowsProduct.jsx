@@ -16,6 +16,8 @@ export default function RowsProduct(props) {
   const { id, name, imageUrl, price, quantity, discount, newPrice, is_active } =
     food;
 
+  console.log(food, "food!");
+
   const handleClickEdit = (event, id) => {
     event.preventDefault();
     dispatch(foodDetailById(id));
@@ -65,7 +67,7 @@ export default function RowsProduct(props) {
         <ToggleSwitch status={is_active} onChange={handleClickUpdateActive} />
       </td>
       <td className="align-middle">
-        <button 
+        <button
           onClick={(event) => handleClickEdit(event, id)}
           className="btn btn-dark mx-2"
           style={{ backgroundColor: "#77AA9C", color: "black" }}
