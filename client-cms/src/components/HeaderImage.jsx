@@ -1,8 +1,7 @@
 function Carousel() {
   return (
     <img
-      className="d-block w-100"
-      style={{transform: "scale(115%"}}
+      className="d-block w-100 h-120 mt-5"
       src={process.env.PUBLIC_URL + "/assets/header-option.jpg"}
       alt="First slide"
     />

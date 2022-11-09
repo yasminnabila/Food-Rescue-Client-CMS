@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateFood } from "../store/action/food";
 import { fetchCategory } from "../store/action/category";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function EditProduct() {
   const navigate = useNavigate();
@@ -63,6 +64,13 @@ function EditProduct() {
     event.preventDefault();
     dispatch(updateFood(form, foodDetail.id));
     navigate(`/admin/list-product`);
+     Swal.fire({
+       position: "center",
+       icon: "success",
+       title: "Edit item success!",
+       showConfirmButton: false,
+       timer: 1500,
+     });
   };
 
   return (
