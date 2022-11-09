@@ -13,10 +13,11 @@ import {
   Filler,
 } from "chart.js";
 import { Pie, Line } from "react-chartjs-2";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useEffect } from "react";
 import { fetchFilter } from "../store/action/food";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import {faker} from "@faker-js/faker"
 
 ChartJS.register(
   ArcElement,
@@ -31,6 +32,12 @@ ChartJS.register(
 );
 
 export function ChartPage() {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const { id } = useParams();
+  const { foodFilter } = useSelector((state) => {
+    return state.foodReducer;
+  });
   const optionsChart = {
     responsive: true,
     plugins: {
@@ -43,14 +50,25 @@ export function ChartPage() {
       },
     },
   };
-  function getFormattedDate(date) {
-    let year = date.getFullYear();
-    let month = (1 + date.getMonth()).toString().padStart(2, '0');
-    let day = date.getDate().toString().padStart(2, '0');
-  
-    return month + '/' + day + '/' + year;
+  function formatDate(date){
+
+    var dd = date.getDate();
+    var mm = date.getMonth()+1;
+    var yyyy = date.getFullYear();
+    if(dd<10) {dd='0'+dd}
+    if(mm<10) {mm='0'+mm}
+    date = mm+'/'+dd;
+    return date
+ }
+  let labels = [];
+  for (var i=0; i<id; i++) {
+    var d = new Date();
+    d.setDate(d.getDate() - i);
+    labels.push( formatDate(d) )
   }
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  // labels.forEach(x => {
+    
+  // })
   
   const dataChart = {
     labels,
@@ -58,7 +76,7 @@ export function ChartPage() {
       {
         fill: true,
         label: 'Dataset 2',
-        data: [100, 200, 300],
+        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
@@ -90,12 +108,18 @@ export function ChartPage() {
       },
     ],
   };
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
-  const { id } = useParams();
-  const { foodFilter } = useSelector((state) => {
-    return state.foodReducer;
-  });
+  const arrayQuantity = []
+  const arrayDate = []
+  foodFilter.map(x => {
+      x.OrderItems.map(y => {
+        arrayQuantity.push(y.quantity)
+        arrayDate.push((y.Payment.updatedAt).toString().substring(0, 10).split("-").join("/"))
+      })
+  })
+  const date = new Date().toString().substring(0,10)
+  console.log(arrayQuantity, "11111111111")
+  console.log(arrayDate, "22222222222")
+  // console.log([...new Set(arrayDate)], "array<<<<<<<<<")
   const options = [
     { value: 7, label: "Last 7 days" },
     { value: 14, label: "Last 14 days" },
@@ -127,13 +151,20 @@ export function ChartPage() {
           </option>
         ))}
       </select>
-      <Container
-        style={{ width: "500px", backgroundColor: "white", padding: 10 }}
-        className="mt-5"
-      >
-        <Line options={optionsChart} data={dataChart} />
-        <Pie data={data} />
-      </Container>
+      <Row>
+        <Container
+          style={{ width: "500px", backgroundColor: "white", padding: 10 }}
+          className="mt-5"
+        >
+          <Line options={optionsChart} data={dataChart} />
+        </Container>
+        <Container
+          style={{ width: "500px", backgroundColor: "white", padding: 10 }}
+          className="mt-5"
+        >
+          <Pie data={data} />
+        </Container>
+      </Row>
     </>
   );
 }
