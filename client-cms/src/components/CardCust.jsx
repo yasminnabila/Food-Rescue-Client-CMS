@@ -1,4 +1,5 @@
 import { Card, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function CardCust() {
   return (
@@ -14,6 +15,13 @@ function CardCust() {
                 cafes and grocery stores at around 50% discount and creating a
                 more sustainable environment while at it.
               </h6>
+              <Link
+                to="/"
+                className="nav-link"
+                style={{ fontWeight: "bold", color: "#77AA9C" }}
+              >
+                Get the app
+              </Link>
             </Card.Body>
           </Col>
           <Col classname="col-5 d-flex justify-content-center align-items-center">
