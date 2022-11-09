@@ -43,19 +43,26 @@ function AddProduct() {
     console.log(form, "<<<<<<<");
     dispatch(createFood(form)).then(() => {
       navigate("/admin/list-product");
+       Swal.fire({
+         position: "center",
+         icon: "success",
+         title: "Adding new item success!",
+         showConfirmButton: false,
+         timer: 1500,
+       });
     });
   };
 
   return (
     <Container>
-      <h1 className="mb-3 mt-5 text-center">Add Product</h1>
+      <h1 className="mb-1 mt-5 text-center">Add Product</h1>
 
       <Container
-        className="container h-50 w-70"
+        className="container h-50 w-70 p-5"
         style={{ backgroundColor: "white", transform: "scale(90%)" }}
       >
         <Row>
-          <Col className="mt-5 bg-white">
+          <Col className="bg-white">
             <Form onSubmit={handleSubmit}>
               {/* PRODUCT IMAGE URL */}
               <Row className="px-3">
@@ -86,7 +93,7 @@ function AddProduct() {
                       value={form.imageUrl}
                       onChange={handleChange}
                       type="text"
-                      placeholder="https://flash-coffee.com/id/wp-content/uploads/sites/13/2021/03/new-upgraded-aren-atte-600x368.png"
+                      placeholder="Image URL"
                     />
                   </Row>
                 </Form.Group>
@@ -121,7 +128,7 @@ function AddProduct() {
                       value={form.name}
                       onChange={handleChange}
                       type="text"
-                      placeholder="Aren Latte"
+                      placeholder="Product name"
                     />
                   </Row>
                 </Form.Group>
@@ -152,7 +159,7 @@ function AddProduct() {
                       value={form.description}
                       onChange={handleChange}
                       type="text"
-                      placeholder="Latte dengan kelezatan gula aren"
+                      placeholder="Product description"
                     />
                   </Row>
                 </Form.Group>
@@ -216,7 +223,7 @@ function AddProduct() {
                       value={form.price}
                       onChange={handleChange}
                       type="number"
-                      placeholder="40000"
+                      placeholder="Product price"
                     />
                   </Row>
                 </Form.Group>
@@ -232,7 +239,7 @@ function AddProduct() {
                       value={form.discount}
                       onChange={handleChange}
                       type="number"
-                      placeholder="50"
+                      placeholder="Discount (%)"
                     />
                   </Row>
                 </Form.Group>
@@ -266,7 +273,7 @@ function AddProduct() {
                       value={form.quantity}
                       onChange={handleChange}
                       type="number"
-                      placeholder="10"
+                      placeholder="Surplus stock"
                     />
                   </Row>
                 </Form.Group>
@@ -276,7 +283,7 @@ function AddProduct() {
                 // onClick={() => navigate(`/admin`)}
                 variant="primary"
                 type="submit"
-                className="mt-3 mb-3 border-0"
+                className="mt-3 mb-5 border-0"
                 style={{ backgroundColor: "#77AA9C", color: "black" }}
               >
                 Submit

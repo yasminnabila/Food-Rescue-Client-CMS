@@ -8,6 +8,7 @@ import ToggleSwitch from "./ToggleSwitch";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 export default function RowsProduct(props) {
   const dispatch = useDispatch();
@@ -25,7 +26,29 @@ export default function RowsProduct(props) {
   };
 
   const handleDelete = () => {
-    dispatch(deleteFood(id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteFood(id));
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
+    // dispatch(deleteFood(id));
+    //  Swal.fire({
+    //    position: "center",
+    //    icon: "success",
+    //    title: "Delete item success!",
+    //    showConfirmButton: false,
+    //    timer: 1500,
+    //  });
+    
   };
 
   const handleClickUpdateActive = (status) => {

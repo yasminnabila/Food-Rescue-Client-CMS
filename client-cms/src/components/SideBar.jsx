@@ -22,9 +22,20 @@ function SideBar() {
   }, []);
 
   const logOut = () => {
-    localStorage.clear();
-    Swal.fire("You have been logged out!");
-    navigate(`/login`);
+    Swal.fire({
+      title: "Are you sure you want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#77aa9c",
+      cancelButtonColor: "#08415c",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.clear();
+        Swal.fire("You have been logged out!");
+        navigate(`/login`);
+      }
+    });
   };
 
   return (

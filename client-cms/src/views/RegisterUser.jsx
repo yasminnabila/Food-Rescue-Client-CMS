@@ -16,7 +16,7 @@ function RegisterUser() {
     phoneNumber: "",
   });
 
-  console.log(input, "<< input formnya");
+  // console.log(input, "<< input formnya");
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -81,32 +81,28 @@ function RegisterUser() {
       fluid
       className="d-flex justify-content-center"
       style={{
-        minHeight: "100vh",
+        maxHeight: "100vh",
         backgroundColor: "#77aa9c",
       }}
     >
       <Container
         fluid
-        className="justify-content-center align-items-center mt-2 border rounded shadow-lg mb-5 bg-white rounded"
+        className="justify-content-center align-items-center mt-2 border rounded shadow-lg bg-white rounded"
         style={{
           backgroundColor: "white",
           transform: "scale(80%)",
           borderColor: "black",
         }}
       >
-        <Row className="d-flex justify-content-center align-items-center p-5">
-          <Col
-            className="col-6 d-flex justify-content-center align-items-center"
-            // style={{ backgroundColor: "#77AA9C" }}
-          >
+        <Row className="d-flex justify-content-center align-items-center mt-5 mb-5">
+          <Col className="col-6 d-flex justify-content-center align-items-center">
             <img
-              className="d-flex justify-content-center align-items-center"
-              // style={{ transform: "scale(80%)" }}
-              src={process.env.PUBLIC_URL + "/assets/register-header.png"}
+              className="d-flex justify-content-center align-items-center w-100 h-100 p-5"
+              src={process.env.PUBLIC_URL + "/assets/surplus.png"}
             ></img>
           </Col>
-          <Col className="col-6 d-flex justify-content-center align-items-center">
-            <Form onSubmit={handleOnSubmit} className="w-75 m-auto mt-3">
+          <Col className="col-6 d-flex justify-content-center align-items-center mb-5">
+            <Form onSubmit={handleOnSubmit} className="w-75 m-auto">
               <Row className="d-flex justify-content-center align-items-center">
                 <img
                   src={
@@ -200,14 +196,14 @@ function RegisterUser() {
                   onClick={() => navigate(`/`)}
                   variant="light"
                   type="button"
-                  className="mt-3 margin-5 btn btn-light mx-2"
+                  className="mt-3 margin-5 btn btn-light mx-2 btn-outline-secondary"
                 >
                   Cancel
                 </Button>
                 <Button
                   variant="primary"
                   type="submit"
-                  className="mt-3 border-0"
+                  className="mt-3 border-0 btn btn-outline-black btn-outline-secondary"
                   style={{ backgroundColor: "#77AA9C", color: "black" }}
                 >
                   Register
