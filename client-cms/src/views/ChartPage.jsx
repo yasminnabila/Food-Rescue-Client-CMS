@@ -161,15 +161,15 @@ export function ChartPage() {
 
   return (
     <>
-      <Container style={{ transform: "scale(95%)" }}>
+      <Container style={{ transform: "scale(100%)" }}>
         <Row className="mt-5 mb-3">
-          <h1 className="d-flex justify-content-start">Stats</h1>
-          <h5 className="d-flex justify-content-start">
+          <h1 className="d-flex justify-content-start" style={{color: "white" }}>Stats</h1>
+          <h5 className="d-flex justify-content-start" style={{color: "white" }}>
             Reduction of food waste your business has contributed
           </h5>
         </Row>
         <Row>
-          <h6 className="mb-2">Filter by:</h6>
+          <h6 className="mb-2" style={{color: "white" }}>Filter by:</h6>
         </Row>
         <select value={selected} onChange={handleChange}>
           {options.map((option) => (
@@ -179,21 +179,21 @@ export function ChartPage() {
           ))}
         </select>
 
-        <Row className="mb-3">
+        <Row className="mb-3 d-flex justify-content-center align-items-center w-100" >
           <Container
             style={{ width: "500px", backgroundColor: "white", padding: 10 }}
-            className="mt-5"
+            className="p-5 rounded-5"
           >
-            <h5 className="mt-3 mb-5 text-center">
+            <h5 className="mb-5 text-center">
               Daily food rescued (by portion)
             </h5>
             <Line options={optionsChart} data={dataChart} className="mt-5" />
           </Container>
           <Container
             style={{ width: "500px", backgroundColor: "white", padding: 10 }}
-            className="mt-5"
+            className="my-5 p-5 rounded-5"
           >
-            <h5 className="mt-3 mb-5 text-center">
+            <h5 className="mb-3 text-center">
               Total food rescued (by portion per menu)
             </h5>
             <Pie data={data} />

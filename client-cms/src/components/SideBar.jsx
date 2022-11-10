@@ -60,7 +60,7 @@ function SideBar() {
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => navigate(`/admin`)}
-              className="nav-link text-black small p-1"
+              className="nav-link text-black small p-1 mb-1"
             >
               <FaHome
                 style={{ color: "#77AA9C", size: "30rem", marginRight: "10px" }}
@@ -71,7 +71,7 @@ function SideBar() {
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => navigate(`/admin/list-product`)}
-              className="nav-link text-black small p-1"
+              className="nav-link text-black small p-1 mb-1"
             >
               <MdOutlineFastfood
                 style={{ color: "#77AA9C", size: "30rem", marginRight: "10px" }}
@@ -82,7 +82,7 @@ function SideBar() {
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => navigate(`/admin/list-order`)}
-              className="nav-link text-black small p-1"
+              className="nav-link text-black small p-1 mb-1"
             >
               <FaShoppingCart
                 style={{ color: "#77AA9C", size: "30rem", marginRight: "10px" }}
@@ -93,7 +93,7 @@ function SideBar() {
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => navigate(`/admin/chart/7`)}
-              className="nav-link text-black small p-1"
+              className="nav-link text-black small p-1 mb-1"
             >
               <FaRegChartBar
                 style={{ color: "#77AA9C", size: "30rem", marginRight: "8px" }}
@@ -104,7 +104,7 @@ function SideBar() {
           <li className="nav-item d-flex justify-content-start">
             <Nav.Link
               onClick={() => logOut()}
-              className="nav-link text-black small p-1"
+              className="nav-link text-black small p-1 mb-1"
               href="#login"
             >
               <SlLogout
@@ -115,7 +115,7 @@ function SideBar() {
           </li>
         </ul>
 
-        <ul className="nav flex-column d-flex justify-content-start mt-3">
+        <ul className="nav flex-column d-flex justify-content-start mt-4">
           <li className="nav-item d-flex justify-content-start">
             Welcome, {restaurant.name}!
           </li>

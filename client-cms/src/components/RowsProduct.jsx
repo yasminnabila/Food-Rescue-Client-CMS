@@ -92,13 +92,13 @@ export default function RowsProduct(props) {
       <td className="align-middle">
         <button
           onClick={(event) => handleClickEdit(event, id)}
-          className="btn btn-dark mx-2"
-          style={{ backgroundColor: "#77AA9C", color: "black" }}
+          className="btn btn-warning mx-2 rounded-pill"
+          // style={{ backgroundColor: "#77AA9C", color: "white" }}
         >
           Edit
         </button>
         {/* <Container></Container> */}
-        <button onClick={handleDelete} className="btn btn-dark">
+        <button onClick={handleDelete} className="btn btn-danger rounded-pill">
           Delete
         </button>
       </td>
