@@ -48,10 +48,10 @@ function SideBar() {
         {/* <RestaurantBanner /> */}
         <img
           src={
-            process.env.PUBLIC_URL + "/assets/logo_savvie_transparant-01.png"
+            process.env.PUBLIC_URL + "/assets/Logo_Horizontal.png"
           }
-          width="50"
-          height="50"
+          width="170"
+          height="60"
           className="d-inline-block align-top mb-3"
           alt="Savvie Logo"
           onClick={() => navigate(`/`)}

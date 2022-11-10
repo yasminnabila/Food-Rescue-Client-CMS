@@ -73,7 +73,7 @@ function LoginPage() {
     >
       <Container
         fluid
-        className="justify-content-center align-items-center mt-2 border rounded shadow-lg mb-5 bg-white rounded"
+        className="justify-content-center align-items-center mt-2 border rounded shadow-lg mb-3 bg-white rounded"
         style={{
           backgroundColor: "white",
           transform: "scale(80%)",
@@ -81,7 +81,7 @@ function LoginPage() {
         }}
       >
         <Row className="d-flex justify-content-center align-items-center">
-          <Col className="col-7 d-flex justify-content-center align-items-center">
+          <Col className="col-6 d-flex justify-content-center align-items-center">
             <Form onSubmit={handleOnSubmit} className="w-75 m-auto mt-5">
               <h1 className="text-center mb-4 text-black">Partner Login</h1>
               <Row className="mb-3">
@@ -112,9 +112,9 @@ function LoginPage() {
                 </Form.Group>
               </Row>
               <Button
-                variant=""
+              size="lg"
                 type="submit"
-                className="mt-3"
+                className="mt-3 rounded-pill btn"
                 style={{ backgroundColor: "#77AA9C", color: "white" }}
               >
                 Login
@@ -133,12 +133,12 @@ function LoginPage() {
           </Col>
           <Col
             className="col-5 d-flex justify-content-center align-items-center p-1"
-            style={{ backgroundColor: "white" }}
+            style={{ backgroundColor: "white", height: "700px" }}
           >
             <img
               className="d-flex justify-content-center align-items-center"
-              style={{ transform: "scale(80%)" }}
-              src={process.env.PUBLIC_URL + "/assets/login-asset.png"}
+              style={{ maxWidth: "600px" }}
+              src={process.env.PUBLIC_URL + "/assets/gambar.png"}
             ></img>
           </Col>
         </Row>

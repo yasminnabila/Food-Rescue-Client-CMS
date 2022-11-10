@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CardCust() {
   return (
     <>
-      <Card style={{ width: "50rem", height: "auto" }} className="mt-5">
+      <Card style={{ width: "50rem", height: "auto" }} className="mt-5 rounded-5">
         <Row className="p-3 d-flex align-items-center">
           <Col className="col-7">
             <Card.Body>
