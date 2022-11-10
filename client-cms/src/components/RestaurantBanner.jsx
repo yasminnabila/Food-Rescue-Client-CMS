@@ -15,7 +15,7 @@ function RestaurantBanner() {
   }, []);
 
   return (
-    <Card className="d-flex align-items-center mb-3 mt-2 p-1">
+    <Card className="d-flex align-items-center mb-3 mt-2 p-1 rounded-4">
       <Row className="d-flex align-items-center">
         <Col className="col-5">
           <Card.Img

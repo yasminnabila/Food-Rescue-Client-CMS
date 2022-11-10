@@ -43,7 +43,7 @@ export default function Tables(props) {
   return (
     <div>
       <br />
-      <Paper sx={{ width: "100%", mb: 2 }}>
+      <Paper sx={{ width: "100%" }} className="p-4 rounded-5">
         <TableContainer sx={{ maxHeight: 440 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>

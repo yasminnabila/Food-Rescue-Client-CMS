@@ -9,12 +9,12 @@ function Dashboard() {
     <>
       <Container style={{ transform: "scale(95%)" }}>
         <Row className="mt-5">
-          <h1 className="d-flex justify-content-start">Dashboard</h1>
-          <h5 className="d-flex justify-content-start">
+          <h1 className="d-flex justify-content-start" style={{color: "white" }}>Dashboard</h1>
+          <h5 className="d-flex justify-content-start" style={{color: "white" }}>
             Activities you need to monitor to maintain customer's satisfaction
           </h5>
         </Row>
-        <Row className="mt-3">
+        <Row className="mt-3 mx-1">
           <Col className="p-2 col-3">
             <CardOrder />
           </Col>

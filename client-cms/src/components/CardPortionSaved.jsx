@@ -31,7 +31,7 @@ export default function CardPortionSaved() {
   }, [order]);
 
   return (
-    <Card sx={{ width: 220, height: "auto" }}>
+    <Card sx={{ width: 220, height: "auto" }} className="rounded-5">
       <CardContent>
         <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
           Portions Saved

@@ -5,15 +5,15 @@ export default function NavBar() {
   const navigate = useNavigate();
   return (
     <Navbar bg="light" className="fixed-top">
-      <Container>
+      <Container gap={3}>
         <Navbar.Brand>
           <img
             src={
-              process.env.PUBLIC_URL + "/assets/logo_savvie_transparant-01.png"
+              process.env.PUBLIC_URL + "/assets/Logo_Horizontal.png"
             }
-            width="50"
-            height="50"
-            className="d-inline-block align-top"
+            width="170"
+            height="60"
+            className="d-inline-block align-top "
             alt="Savvie Logo"
             onClick={() => navigate(`/`)}
           />
