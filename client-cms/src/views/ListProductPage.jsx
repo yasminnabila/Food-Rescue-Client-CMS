@@ -13,7 +13,7 @@ function ListProductPage() {
         </Row>
         <Row className="mb-1 mt-3">
           {/* <Col className="col-9"></Col> */}
-          <Col className="col-3 d-flex justify-content-start">
+          <Col className="col-12 d-flex justify-content-end">
             <Button
               onClick={() => navigate(`/admin/add-product`)}
               className="btn-light btn rounded-pill"

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CardPartner() {
   return (
     <>
-      <Card style={{ width: "50rem", height: "auto" }} className="mb-3">
+      <Card style={{ width: "50rem", height: "auto" }} className="mb-3 rounded-5">
         <Row className="p-3 d-flex justify-content-center align-items-center">
           <Col className="col-7">
             <Card.Body>
