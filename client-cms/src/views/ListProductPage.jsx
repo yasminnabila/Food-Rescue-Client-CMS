@@ -35,7 +35,7 @@ function ListProductPage() {
               "Disc",
               "New Price",
               "Stock",
-              "Status",
+              "Active",
               "Action",
             ]}
           />

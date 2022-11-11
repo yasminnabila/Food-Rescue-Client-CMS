@@ -40,7 +40,7 @@ export default function CardPreventedLoss() {
   };
 
   return (
-    <Card sx={{ width: 220, height: "auto" }} className="rounded-5">
+    <Card sx={{ width: 240, height: "auto" }} className="rounded-5">
       <CardContent>
         <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
           Prevented Loss
