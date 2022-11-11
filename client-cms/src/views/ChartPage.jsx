@@ -95,6 +95,7 @@ export function ChartPage() {
           "rgba(75, 192, 192, 0.2)",
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
+          "rgb(230, 229, 163, 0.2)"
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",
@@ -103,6 +104,7 @@ export function ChartPage() {
           "rgba(75, 192, 192, 1)",
           "rgba(153, 102, 255, 1)",
           "rgba(255, 159, 64, 1)",
+          "rgb(230, 229, 163, 1)"
         ],
         borderWidth: 1,
       },
@@ -114,10 +116,12 @@ export function ChartPage() {
 
   foodFilter.forEach((x) => {
     x.OrderItems.forEach((y) => {
-      arrayQuantity.push(y.quantity);
-      arrayDate.push(
-        y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/")
-      );
+      if (y.Payment.status == "Delivered"){
+        arrayQuantity.push(y.quantity);
+        arrayDate.push(
+          y.Payment.updatedAt.toString().substring(0, 10).split("-").join("/")
+        );
+      }
     });
   });
   console.log(arrayQuantity, arrayDate);
@@ -168,18 +172,18 @@ export function ChartPage() {
             Reduction of food waste your business has contributed
           </h5>
         </Row>
-        <Row>
-          <h6 className="mb-2" style={{color: "white" }}>Filter by:</h6>
+        <Row className="">
+          <h6 className="mb-2" style={{color: "white"}}>Filter by:</h6>
         </Row>
-        <select value={selected} onChange={handleChange}>
+        <select style={{ width: "130px" }} value={selected} onChange={handleChange}>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
           ))}
         </select>
+        <Row className="mb-3 d-flex justify-content-center align-items-start w-100" style={{ backgroundColor: "white"}}>
 
-        <Row className="mb-3 d-flex justify-content-center align-items-center w-100" >
           <Container
             style={{ width: "500px", backgroundColor: "white", padding: 10 }}
             className="p-5 rounded-5"
@@ -191,7 +195,7 @@ export function ChartPage() {
           </Container>
           <Container
             style={{ width: "500px", backgroundColor: "white", padding: 10 }}
-            className="my-5 p-5 rounded-5"
+            className=" p-5 rounded-5"
           >
             <h5 className="mb-3 text-center">
               Total food rescued (by portion per menu)

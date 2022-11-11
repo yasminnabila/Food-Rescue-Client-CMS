@@ -21,7 +21,7 @@ function ListOrderPage() {
               "Order Time",
               "Qty",
               "Offer",
-              "Status",
+              "Action",
             ]}
            />
         </Row>
