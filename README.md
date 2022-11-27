@@ -27,7 +27,7 @@ Savvie's intuitive web-based partner application is made to facilitate food merc
 
 Here is a working [_live demo_](https://savvie-cms.web.app/)
 
-https://user-images.githubusercontent.com/108170309/204081672-f66ae6a9-a2eb-4d8a-89be-c0aae41989f2.mp4
+https://user-images.githubusercontent.com/108170309/204119019-9f373351-ff1a-472a-b6c9-7c439bf18d30.mp4
 
 ## Built With
 
